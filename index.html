@@ -131,7 +131,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">3</span>
+          <span class="site-state-item-count">2</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -175,72 +175,6 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://www.threegates.net/2021/12/06/resource-testcase/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/disney-burger.jpg">
-      <meta itemprop="name" content="Edward Chen">
-      <meta itemprop="description" content="Welcome to ThreeeGates! ThreeGates is my personal site where I share my game developing notes and gaming experiences. You may find something interesting here...">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ThreeGates">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/12/06/resource-testcase/" class="post-title-link" itemprop="url">资源文件夹测试</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2021-12-06 12:08:44 / 修改时间：13:09:53" itemprop="dateCreated datePublished" datetime="2021-12-06T12:08:44+08:00">2021-12-06</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p><img src="/2021/12/06/resource-testcase/aliyun-dns-config.png" alt="图片测试"></p>
-<p>在配置中设置post_asset_folder: true，并使用hexo-renderer-marked 3.1.0进行图片嵌入，资源存放于post同名文件下，其他post可以通过相对路径访问</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="http://www.threegates.net/2021/12/05/first-article/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -272,7 +206,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2021-12-06 21:27:48" itemprop="dateModified" datetime="2021-12-06T21:27:48+08:00">2021-12-06</time>
+        <time title="修改时间：2021-12-07 00:40:50" itemprop="dateModified" datetime="2021-12-07T00:40:50+08:00">2021-12-07</time>
       </span>
 
   
@@ -312,7 +246,7 @@
 </li>
 <li><p>在阿里云的DNS解析中配置，这里应该将<code>www.threegates.net</code>使用CNAME形式解析到我的<code>kalulas.github.io</code>，且通过dig工具和后续文档可以得知，如果配置了<code>threegates.net</code>到github pages提供的四个DNS（见下文），github pages会帮你重定向到网页内容，而<code>www.threegates.net</code>配置到<code>kalulas.github.io</code>之后，后面其实也是解析到github.pages的DNS</p>
 </li>
-<li><p>配置如图：<img src="/2021/12/06/resource-testcase/aliyun-dns-config.png" alt="aliyun dns configuration"></p>
+<li><p>配置如图：<img src="/2021/12/05/first-article/aliyun-dns-config.png" alt="aliyun dns configuration"></p>
 </li>
 <li><p>dig命令解析结果如下（threegates.net的解析情况也一样）：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$ dig kalulas.github.io +nostats +nocomments +nocmd</span><br><span class="line">; &lt;&lt;&gt;&gt; DiG 9.11.4-P2-RedHat-9.11.4-26.P2.el7_9.8 &lt;&lt;&gt;&gt; kalulas.github.io +nostats +nocomments +nocmd</span><br><span class="line">;; global options: +cmd</span><br><span class="line">;kalulas.github.io.             IN      A</span><br><span class="line">kalulas.github.io.      3600    IN      A       185.199.109.153</span><br><span class="line">kalulas.github.io.      3600    IN      A       185.199.111.153</span><br><span class="line">kalulas.github.io.      3600    IN      A       185.199.110.153</span><br><span class="line">kalulas.github.io.      3600    IN      A       185.199.108.153</span><br></pre></td></tr></table></figure>
