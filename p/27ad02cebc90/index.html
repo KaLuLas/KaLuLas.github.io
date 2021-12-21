@@ -20,15 +20,15 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"www.threegates.net","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.8.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"disqus","storage":true,"lazyload":false,"nav":null,"activeClass":"disqus"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
-<meta name="description" content="Welcome to ThreeeGates! ThreeGates is my personal site where I share my game developing notes and gaming experiences. You may find something interesting here...">
+<meta name="description" content="序最初在工作中接触到引擎原生层相关的问题，是项目实现的延时执行模块，模块提供接口来进行委托的延时调用： 12&#x2F;&#x2F; 返回一个token用于后续的CancelDelayCallm_DelayExecuteGuidance &#x3D; GameFacade.CurrentGame.DelayCall(0.1f, ExecuteGuideQueuePeek);  测试link   原生对象与托管对象Unity作为">
 <meta property="og:type" content="article">
-<meta property="og:title" content="unity中的原生对象与管理对象">
+<meta property="og:title" content="unity中的原生对象与托管对象">
 <meta property="og:url" content="https://www.threegates.net/p/27ad02cebc90/index.html">
 <meta property="og:site_name" content="ThreeGates">
-<meta property="og:description" content="Welcome to ThreeeGates! ThreeGates is my personal site where I share my game developing notes and gaming experiences. You may find something interesting here...">
+<meta property="og:description" content="序最初在工作中接触到引擎原生层相关的问题，是项目实现的延时执行模块，模块提供接口来进行委托的延时调用： 12&#x2F;&#x2F; 返回一个token用于后续的CancelDelayCallm_DelayExecuteGuidance &#x3D; GameFacade.CurrentGame.DelayCall(0.1f, ExecuteGuideQueuePeek);  测试link   原生对象与托管对象Unity作为">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-12-21T03:31:37.000Z">
-<meta property="article:modified_time" content="2021-12-21T03:45:15.647Z">
+<meta property="article:modified_time" content="2021-12-21T04:25:01.055Z">
 <meta property="article:author" content="Edward Chen">
 <meta property="article:tag" content="游戏开发">
 <meta property="article:tag" content="Unity">
@@ -39,10 +39,10 @@
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://www.threegates.net/p/27ad02cebc90/","path":"p/27ad02cebc90/","title":"unity中的原生对象与管理对象"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://www.threegates.net/p/27ad02cebc90/","path":"p/27ad02cebc90/","title":"unity中的原生对象与托管对象"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>unity中的原生对象与管理对象 | ThreeGates</title>
+<title>unity中的原生对象与托管对象 | ThreeGates</title>
   
 
 
@@ -108,7 +108,7 @@
 
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目录
@@ -121,6 +121,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BA%8F"><span class="nav-number">1.</span> <span class="nav-text">序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8E%9F%E7%94%9F%E5%AF%B9%E8%B1%A1%E4%B8%8E%E6%89%98%E7%AE%A1%E5%AF%B9%E8%B1%A1"><span class="nav-number">2.</span> <span class="nav-text">原生对象与托管对象</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -213,7 +214,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          unity中的原生对象与管理对象
+          unity中的原生对象与托管对象
         </h1>
 
         <div class="post-meta-container">
@@ -225,7 +226,7 @@
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2021-12-21 11:31:37 / 修改时间：11:45:15" itemprop="dateCreated datePublished" datetime="2021-12-21T11:31:37+08:00">2021-12-21</time>
+      <time title="创建时间：2021-12-21 11:31:37 / 修改时间：12:25:01" itemprop="dateCreated datePublished" datetime="2021-12-21T11:31:37+08:00">2021-12-21</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -273,7 +274,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>0</span>
+      <span>270</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -291,7 +292,14 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        
+        <h2 id="序"><a href="#序" class="headerlink" title="序"></a>序</h2><p>最初在工作中接触到引擎原生层相关的问题，是项目实现的延时执行模块，模块提供接口来进行委托的延时调用：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// 返回一个token用于后续的CancelDelayCall</span><br><span class="line">m_DelayExecuteGuidance = GameFacade.CurrentGame.DelayCall(0.1f, ExecuteGuideQueuePeek);</span><br></pre></td></tr></table></figure>
+
+<a href="https://blog.eyas.sh/2020/10/unity-for-engineers-pt5-object-component/" title="[external] [标题？]" target="">测试link</a>
+
+
+<h2 id="原生对象与托管对象"><a href="#原生对象与托管对象" class="headerlink" title="原生对象与托管对象"></a>原生对象与托管对象</h2><p>Unity作为C++实现的游戏引擎，在运行时大部分的逻辑和内存管理都是在原生层（C++ code）进行，这里就将引擎在原生层创建的对象称为原生对象（native object），</p>
+
     </div>
 
     
