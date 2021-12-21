@@ -19,7 +19,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css" integrity="sha256-mUZM63G8m73Mcidfrv5E+Y61y7a12O5mW4ezU3bxqW4=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"www.threegates.net","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.8.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"disqus","storage":true,"lazyload":false,"nav":null,"activeClass":"disqus"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"www.threegates.net","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.8.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"disqus","storage":true,"lazyload":false,"nav":null,"activeClass":"disqus"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":true,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
 <meta name="description" content="序最初在工作中接触到引擎原生层相关的问题，是项目实现的延时执行模块，模块提供接口来进行委托的延时调用： &#x2F;&#x2F; 返回一个token用于后续的CancelDelayCall m_DelayExecuteGuidance &#x3D; GameFacade.CurrentGame.DelayCall(8.0f, OnPlayerGuideFinished);  &#x2F;&amp;#x2F">
 <meta property="og:type" content="article">
 <meta property="og:title" content="unity中的原生对象与托管对象">
@@ -306,7 +306,7 @@ private void OnPlayerGuideFinished()
     &#x2F;&#x2F; 作为MonoBehaviour的成员方法，访问gameObject
     Debug.Log(gameObject.name);
     &#x2F;&#x2F; something else...
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+&#125;</code></pre>
 
 <p>延时执行模块与协程不同，不会因为gameObject的销毁而取消执行，假设在指定的8s后，组件绑定的gameObject已经销毁，那么试图在访问时就会产生这样的报错：</p>
 <p><img src="/p/27ad02cebc90/image-20211221124140635.png" alt="image-20211221124140635"></p>
@@ -334,7 +334,7 @@ private static bool CompareBaseObjects(Object lhs, Object rhs)
   if (flag2)
     return !Object.IsNativeObjectAlive(lhs);
   return flag1 ? !Object.IsNativeObjectAlive(rhs) : lhs.m_InstanceID &#x3D;&#x3D; rhs.m_InstanceID;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+&#125;</code></pre>
 
 
 
@@ -364,7 +364,7 @@ private static bool CompareBaseObjects(Object lhs, Object rhs)
     &#125;
 
     m_View.GuideCoverBtn.gameObject.SetActive(false);
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+&#125;</code></pre>
 
 <p>运行测试时，我们会发现这些尽管托管层仍持有这些MonoBehaviour的引用，但这些引用已经全部被判定为null，这是由于我们销毁gameObject时，原生层对应的对象已经被从内存中销毁，对应内内存空间被释放，所以尽管托管层的<code>Object</code>对象还没有被垃圾回收，对象仍然可以被访问，但对自身的null判定会全部为true。</p>
 <p>同时我们也要注意到null判定为true是因为<code>operator==</code>的重写，但是仍然指向一个托管层的<code>Object</code>对象，这个对象的成员（如m_View，是一个纯C#侧对象）仍然是可以被访问的，只在最终访问到原生层对象，或者试图获取原生层对象时报错。</p>
@@ -374,7 +374,7 @@ private static bool CompareBaseObjects(Object lhs, Object rhs)
 &#x2F;&#x2F;&#x2F;   &lt;para&gt;The game object this component is attached to. A component is always attached to a game object.&lt;&#x2F;para&gt;
 &#x2F;&#x2F;&#x2F; &lt;&#x2F;summary&gt;
 &#x2F;&#x2F;&#x2F; &lt;footer&gt;&lt;a href&#x3D;&quot;https:&#x2F;&#x2F;docs.unity3d.com&#x2F;2018.4&#x2F;Documentation&#x2F;ScriptReference&#x2F;30_search.html?q&#x3D;Component-gameObject&quot;&gt;&#96;Component.gameObject&#96; on docs.unity3d.com&lt;&#x2F;a&gt;&lt;&#x2F;footer&gt;
-public extern GameObject gameObject &#123; [FreeFunction(&quot;GetGameObject&quot;, HasExplicitThis &#x3D; true), MethodImpl(MethodImplOptions.InternalCall)] get; &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+public extern GameObject gameObject &#123; [FreeFunction(&quot;GetGameObject&quot;, HasExplicitThis &#x3D; true), MethodImpl(MethodImplOptions.InternalCall)] get; &#125;</code></pre>
 
 <p>可以看到这里就是在试图获取原生层gameObject时抛出了错误</p>
 <h3 id="GameObject-amp-Component"><a href="#GameObject-amp-Component" class="headerlink" title="GameObject &amp; Component"></a>GameObject &amp; Component</h3><h4 id="GameObject"><a href="#GameObject" class="headerlink" title="GameObject"></a>GameObject</h4><blockquote>
@@ -486,6 +486,9 @@ public extern GameObject gameObject &#123; [FreeFunction(&quot;GetGameObject&quo
 
   
   <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.25.0/components/prism-core.min.js" integrity="sha256-vlRYHThwdq55dA+n1BKQRzzLwFtH9VINdSI68+5JhpU=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.25.0/plugins/autoloader/prism-autoloader.min.js" integrity="sha256-cl5LNmPvcRcGFaQFjwEKIfs51AX7wBkvoByH6LTxQCs=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.25.0/plugins/line-numbers/prism-line-numbers.min.js" integrity="sha256-K837BwIyiXo5k/9fCYgqUyA14bN4/Ve9P2SIT0KmZD0=" crossorigin="anonymous"></script>
 <script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
 
   

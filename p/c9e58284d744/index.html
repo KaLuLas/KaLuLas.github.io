@@ -19,7 +19,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css" integrity="sha256-mUZM63G8m73Mcidfrv5E+Y61y7a12O5mW4ezU3bxqW4=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"www.threegates.net","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.8.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"disqus","storage":true,"lazyload":false,"nav":null,"activeClass":"disqus"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"www.threegates.net","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.8.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"disqus","storage":true,"lazyload":false,"nav":null,"activeClass":"disqus"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":true,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
 <meta name="description" content="使用hexo快速进行博客搭建之前用wordpress搭建的博客需要折腾的东西太多，编辑器支持也不太好，没有Notion里记笔记来的方便（该说写个笔记两头传本来就麻烦），所以这次用hexo来搭建看看。 部署选择了一键同步生成的网站内容到github repo上，使用pages来进行网站部署，markdown源文件再自己使用github来同步。 这篇文章主要记录一下搭建网站的过程，还有给搭建的时候看的">
 <meta property="og:type" content="article">
 <meta property="og:title" content="使用hexo快速进行博客搭建">
@@ -333,7 +333,7 @@
 kalulas.github.io.      3600    IN      A       185.199.109.153
 kalulas.github.io.      3600    IN      A       185.199.111.153
 kalulas.github.io.      3600    IN      A       185.199.110.153
-kalulas.github.io.      3600    IN      A       185.199.108.153<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+kalulas.github.io.      3600    IN      A       185.199.108.153</code></pre>
 
 <pre class="line-numbers language-none"><code class="language-none">$ dig www.threegates.net +nostats +nocomment
 ; &lt;&lt;&gt;&gt; DiG 9.11.4-P2-RedHat-9.11.4-26.P2.el7_9.8 &lt;&lt;&gt;&gt; www.threegates.net +nostats +nocomment
@@ -343,7 +343,7 @@ www.threegates.net.     600     IN      CNAME   kalulas.github.io.
 kalulas.github.io.      3600    IN      A       185.199.109.153
 kalulas.github.io.      3600    IN      A       185.199.111.153
 kalulas.github.io.      3600    IN      A       185.199.110.153
-kalulas.github.io.      3600    IN      A       185.199.108.153<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+kalulas.github.io.      3600    IN      A       185.199.108.153</code></pre></li>
 <li><p>最后，在第4步中修改Custom Domain会添加一个文件CNAME到repo的根目录下，但是由于使用了一键部署，实际上同步的目录是~/…/your_site/.deploy_git，可以在这个目录下同步，但是这个目录是由~/…/your_site/source生成而来的，所以得在source下也创建一个CNAME文件，内容就用github为你生成的<code>www.threegates.net</code>即可</p>
 </li>
 <li><p>最后，文档提示了可以enforce HTTPS，这个就作为可选项就晚点再做吧</p>
@@ -359,7 +359,7 @@ kalulas.github.io.      3600    IN      A       185.199.108.153<span aria-hidden
 <pre class="line-numbers language-none"><code class="language-none">post_asset_folder: true
 marked:
   prependRoot: true
-  postAsset: true<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+  postAsset: true</code></pre>
 
 
     </div>
@@ -440,6 +440,9 @@ marked:
 
   
   <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.25.0/components/prism-core.min.js" integrity="sha256-vlRYHThwdq55dA+n1BKQRzzLwFtH9VINdSI68+5JhpU=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.25.0/plugins/autoloader/prism-autoloader.min.js" integrity="sha256-cl5LNmPvcRcGFaQFjwEKIfs51AX7wBkvoByH6LTxQCs=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.25.0/plugins/line-numbers/prism-line-numbers.min.js" integrity="sha256-K837BwIyiXo5k/9fCYgqUyA14bN4/Ve9P2SIT0KmZD0=" crossorigin="anonymous"></script>
 <script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
 
   
