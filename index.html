@@ -262,14 +262,14 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>5k</span>
+      <span>4.8k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>5 分钟</span>
+      <span>4 分钟</span>
     </span>
 </div>
 
@@ -281,16 +281,7 @@
     
     <div class="post-body" itemprop="articleBody">
           <h2 id="序"><a href="#序" class="headerlink" title="序"></a>序</h2><p>最初在工作中接触到引擎原生层相关的问题，是项目实现的延时执行模块，模块提供接口来进行委托的延时调用：</p>
-<pre class="line-numbers language-c#" data-language="c#"><code class="language-c#">&#x2F;&#x2F; 返回一个token用于后续的CancelDelayCall
-m_DelayExecuteGuidance &#x3D; GameFacade.CurrentGame.DelayCall(8.0f, OnPlayerGuideFinished);
-
-&#x2F;&#x2F; 延时执行的代码示例
-private void OnPlayerGuideFinished()
-&#123;
-    &#x2F;&#x2F; 作为MonoBehaviour的成员方法，访问gameObject
-    Debug.Log(gameObject.name);
-    &#x2F;&#x2F; something else...
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">// 返回一个token用于后续的CancelDelayCall</span><br><span class="line">m_DelayExecuteGuidance = GameFacade.CurrentGame.DelayCall(8.0f, OnPlayerGuideFinished);</span><br><span class="line"></span><br><span class="line">// 延时执行的代码示例</span><br><span class="line">private void OnPlayerGuideFinished()</span><br><span class="line">&#123;</span><br><span class="line">    // 作为MonoBehaviour的成员方法，访问gameObject</span><br><span class="line">    Debug.Log(gameObject.name);</span><br><span class="line">    // something else...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>延时执行模块与协程不同，不会因为gameObject的销毁而取消执行，假设在指定的8s后，组件绑定的gameObject已经销毁，那么试图在访问时就会产生这样的报错：</p>
 <p><img src="/p/27ad02cebc90/image-20211221124140635.png" alt="image-20211221124140635"></p>
@@ -396,7 +387,7 @@ private void OnPlayerGuideFinished()
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>1.9k</span>
+      <span>2.4k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
