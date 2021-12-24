@@ -20,12 +20,10 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"www.threegates.net","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.8.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"disqus","storage":true,"lazyload":false,"nav":null,"activeClass":"disqus"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":true,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
-<meta name="description" content="序最初在工作中接触到引擎原生层相关的问题，是项目实现的延时执行模块，模块提供接口来进行委托的延时调用： &#x2F;&#x2F; 返回一个token用于后续的CancelDelayCall m_DelayExecuteGuidance &#x3D; GameFacade.CurrentGame.DelayCall(8.0f, OnPlayerGuideFinished);  &#x2F;&amp;#x2F">
 <meta property="og:type" content="article">
 <meta property="og:title" content="unity中的原生对象与托管对象">
 <meta property="og:url" content="https://www.threegates.net/p/27ad02cebc90/index.html">
 <meta property="og:site_name" content="ThreeGates">
-<meta property="og:description" content="序最初在工作中接触到引擎原生层相关的问题，是项目实现的延时执行模块，模块提供接口来进行委托的延时调用： &#x2F;&#x2F; 返回一个token用于后续的CancelDelayCall m_DelayExecuteGuidance &#x3D; GameFacade.CurrentGame.DelayCall(8.0f, OnPlayerGuideFinished);  &#x2F;&amp;#x2F">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://www.threegates.net/p/27ad02cebc90/image-20211221124140635.png">
 <meta property="og:image" content="https://www.threegates.net/p/27ad02cebc90/object-hierarchy.svg">
@@ -125,7 +123,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BA%8F"><span class="nav-number">1.</span> <span class="nav-text">序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8E%9F%E7%94%9F%E5%AF%B9%E8%B1%A1%E4%B8%8E%E6%89%98%E7%AE%A1%E5%AF%B9%E8%B1%A1"><span class="nav-number">2.</span> <span class="nav-text">原生对象与托管对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Understanding-Unity-Engine-Objects"><span class="nav-number">3.</span> <span class="nav-text">Understanding Unity Engine Objects</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#UnityEngine-Object"><span class="nav-number">3.1.</span> <span class="nav-text">UnityEngine.Object</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BF%9B%E8%A1%8C%E4%B8%80%E4%B8%8B%E5%9B%9E%E9%A1%BE%EF%BC%88%E9%9D%9E%E5%8E%9F%E6%96%87%E5%86%85%E5%AE%B9%EF%BC%89"><span class="nav-number">3.1.1.</span> <span class="nav-text">进行一下回顾（非原文内容）</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#GameObject-amp-Component"><span class="nav-number">3.2.</span> <span class="nav-text">GameObject &amp; Component</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#GameObject"><span class="nav-number">3.2.1.</span> <span class="nav-text">GameObject</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Component"><span class="nav-number">3.2.2.</span> <span class="nav-text">Component</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A6%81%E7%82%B9"><span class="nav-number">3.3.</span> <span class="nav-text">要点</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E6%96%87%E7%AB%A0"><span class="nav-number">4.</span> <span class="nav-text">参考文章</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8E%9F%E7%94%9F%E5%AF%B9%E8%B1%A1%E4%B8%8E%E6%89%98%E7%AE%A1%E5%AF%B9%E8%B1%A1"><span class="nav-number">1.</span> <span class="nav-text">原生对象与托管对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Understanding-Unity-Engine-Objects"><span class="nav-number">2.</span> <span class="nav-text">Understanding Unity Engine Objects</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#UnityEngine-Object"><span class="nav-number">2.1.</span> <span class="nav-text">UnityEngine.Object</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BF%9B%E8%A1%8C%E4%B8%80%E4%B8%8B%E5%9B%9E%E9%A1%BE%EF%BC%88%E9%9D%9E%E5%8E%9F%E6%96%87%E5%86%85%E5%AE%B9%EF%BC%89"><span class="nav-number">2.1.1.</span> <span class="nav-text">进行一下回顾（非原文内容）</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#GameObject-amp-Component"><span class="nav-number">2.2.</span> <span class="nav-text">GameObject &amp; Component</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#GameObject"><span class="nav-number">2.2.1.</span> <span class="nav-text">GameObject</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Component"><span class="nav-number">2.2.2.</span> <span class="nav-text">Component</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A6%81%E7%82%B9"><span class="nav-number">2.3.</span> <span class="nav-text">要点</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E6%96%87%E7%AB%A0"><span class="nav-number">3.</span> <span class="nav-text">参考文章</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -296,7 +294,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h2 id="序"><a href="#序" class="headerlink" title="序"></a>序</h2><p>最初在工作中接触到引擎原生层相关的问题，是项目实现的延时执行模块，模块提供接口来进行委托的延时调用：</p>
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/lightgallery.js/1.0.1/css/lightgallery.min.css" /><div class=".article-gallery>"<h2 id="序"><a href="#序" class="headerlink" title="序"></a>序</h2><p>最初在工作中接触到引擎原生层相关的问题，是项目实现的延时执行模块，模块提供接口来进行委托的延时调用：</p>
 <pre class="line-numbers language-c#" data-language="c#"><code class="language-c#">&#x2F;&#x2F; 返回一个token用于后续的CancelDelayCall
 m_DelayExecuteGuidance &#x3D; GameFacade.CurrentGame.DelayCall(8.0f, OnPlayerGuideFinished);
 
@@ -309,7 +307,7 @@ private void OnPlayerGuideFinished()
 &#125;</code></pre>
 
 <p>延时执行模块与协程不同，不会因为gameObject的销毁而取消执行，假设在指定的8s后，组件绑定的gameObject已经销毁，那么试图在访问时就会产生这样的报错：</p>
-<p><img src="/p/27ad02cebc90/image-20211221124140635.png" alt="image-20211221124140635"></p>
+<p><a href="/p/27ad02cebc90/image-20211221124140635.png" title="image-20211221124140635" class="gallery-item"><img src="/p/27ad02cebc90/image-20211221124140635.png" alt="image-20211221124140635"></a></p>
 <p>可以看到延时模块仍然保留了对MonoBehaviour的引用，但在试图通过property访问gameObejct的时候发生了报错，且提示代码位置为“managed-to-native”，体现了本文的主体：引擎的托管（managed）代码对原生（native）代码的访问，下面我们就集中介绍Unity引擎中的原生对象与托管对象。</p>
 <span id="more"></span>
 
@@ -320,7 +318,7 @@ private void OnPlayerGuideFinished()
 <p>节选翻译自 <a target="_blank" rel="noopener" href="https://blog.eyas.sh/2020/10/unity-for-engineers-pt5-object-component/">https://blog.eyas.sh/2020/10/unity-for-engineers-pt5-object-component/</a></p>
 </blockquote>
 <p>Unity引擎运行时使用C++实现，大多数引擎的要素（gameObject以及component等等）都处于C++侧。你也许也知道Unity引擎的API是以C#形式提供的。这些API为你提供了对Unity原生对象的访问，以至于这些对象用起来就像是C#对象一样亲切易懂。</p>
-<p><img src="/p/27ad02cebc90/object-hierarchy.svg" alt=" A GameObject, MonoBehaviour, and ScriptableObject all inherit from UnityEngine Object"></p>
+<p><a href="/p/27ad02cebc90/object-hierarchy.svg" title=" A GameObject, MonoBehaviour, and ScriptableObject all inherit from UnityEngine Object" class="gallery-item"><img src="/p/27ad02cebc90/object-hierarchy.svg" alt=" A GameObject, MonoBehaviour, and ScriptableObject all inherit from UnityEngine Object"></a></p>
 <h3 id="UnityEngine-Object"><a href="#UnityEngine-Object" class="headerlink" title="UnityEngine.Object"></a>UnityEngine.Object</h3><p>在继承链的顶端的是<code>UnityEngine.Object</code>。大多数情况下都提供<code>name</code>字符串，<code>GetInstanceID()</code>接口，以及一系列比较器（equality comparers）。</p>
 <p>这个类同时提供了静态方法 <code>static void Destroy(Object obj)</code> 来销毁一个 <code>UnityEngine.Object</code> 以及它的一切子类。当一个Object被销毁时，这个对象的原生层部分已被从内存中释放，而相对小的托管层部分将会在它没有被引用时被垃圾回收。</p>
 <p>因为你在托管层对<code>UnityEngine.Object</code>的引用可能指向一个已经被销毁的原生层对象，所以<code>UnityEngine.Object</code>重写了C#的<code>operator==</code>以及<code>operator!=</code>让一个已被销毁的Object能够表现为null。所以对已在原生层被销毁的Object进行null判定会返回true，或者直接引发<code>NullRefrenceException</code>，来告诉你该对象已经被销毁。</p>
@@ -369,7 +367,7 @@ private static bool CompareBaseObjects(Object lhs, Object rhs)
 
 <p>运行测试时，我们会发现这些尽管托管层仍持有这些MonoBehaviour的引用，但这些引用已经全部被判定为null，这是由于我们销毁gameObject时，原生层对应的对象已经被从内存中销毁，对应内内存空间被释放，所以尽管托管层的<code>Object</code>对象还没有被垃圾回收，对象仍然可以被访问，但对自身的null判定会全部为true。</p>
 <p>同时我们也要注意到null判定为true是因为<code>operator==</code>的重写，但是仍然指向一个托管层的<code>Object</code>对象，这个对象的成员（如m_View，是一个纯C#侧对象）仍然是可以被访问的，只在最终访问到原生层对象，或者试图获取原生层对象时报错。</p>
-<p><img src="/p/27ad02cebc90/image-20211221143715637.png" alt="image-20211221143715637"></p>
+<p><a href="/p/27ad02cebc90/image-20211221143715637.png" title="image-20211221143715637" class="gallery-item"><img src="/p/27ad02cebc90/image-20211221143715637.png" alt="image-20211221143715637"></a></p>
 <p>上图为运行日志结果，报错的为<code>UnityEngine.Component</code>中的<code>getter</code>方法：</p>
 <pre class="line-numbers language-c#" data-language="c#"><code class="language-c#">&#x2F;&#x2F;&#x2F; &lt;summary&gt;
 &#x2F;&#x2F;&#x2F;   &lt;para&gt;The game object this component is attached to. A component is always attached to a game object.&lt;&#x2F;para&gt;
@@ -408,7 +406,12 @@ public extern GameObject gameObject &#123; [FreeFunction(&quot;GetGameObject&quo
 <li><a href="https://docs.unity3d.com/cn/2020.3/Manual/BestPracticeUnderstandingPerformanceInUnity4-1.html" title="" target="">了解Unity中的托管堆</a></li>
 <li><a href="https://developer.unity.cn/projects/6152e4fbedbc2a0020584027" title="" target="">揭秘Unity的黑盒世界，原生对象和托管对象浅谈</a></li>
 </ol>
-
+</div><script src="https://cdn.jsdelivr.net/lightgallery.js/1.0.1/js/lightgallery.min.js"></script><script>if (typeof lightGallery !== 'undefined') {
+        var options = {
+            selector: '.gallery-item'
+        };
+        lightGallery(document.getElementsByClassName('.article-gallery')[0], options);
+        }</script>
     </div>
 
     
