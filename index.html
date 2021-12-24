@@ -280,7 +280,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h2 id="序"><a href="#序" class="headerlink" title="序"></a>序</h2><p>最初在工作中接触到引擎原生层相关的问题，是项目实现的延时执行模块，模块提供接口来进行委托的延时调用：</p>
+          <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/lightgallery.js/1.0.1/css/lightgallery.min.css" /><div class=".article-gallery"<h2 id="序"><a href="#序" class="headerlink" title="序"></a>序</h2><p>最初在工作中接触到引擎原生层相关的问题，是项目实现的延时执行模块，模块提供接口来进行委托的延时调用：</p>
 <pre class="line-numbers language-c#" data-language="c#"><code class="language-c#">&#x2F;&#x2F; 返回一个token用于后续的CancelDelayCall
 m_DelayExecuteGuidance &#x3D; GameFacade.CurrentGame.DelayCall(8.0f, OnPlayerGuideFinished);
 
@@ -293,7 +293,7 @@ private void OnPlayerGuideFinished()
 &#125;</code></pre>
 
 <p>延时执行模块与协程不同，不会因为gameObject的销毁而取消执行，假设在指定的8s后，组件绑定的gameObject已经销毁，那么试图在访问时就会产生这样的报错：</p>
-<p><img src="/p/27ad02cebc90/image-20211221124140635.png" alt="image-20211221124140635"></p>
+<p><a href="/p/27ad02cebc90/image-20211221124140635.png" title="image-20211221124140635" class="gallery-item"><img src="/p/27ad02cebc90/image-20211221124140635.png" alt="image-20211221124140635"></a></p>
 <p>可以看到延时模块仍然保留了对MonoBehaviour的引用，但在试图通过property访问gameObejct的时候发生了报错，且提示代码位置为“managed-to-native”，体现了本文的主体：引擎的托管（managed）代码对原生（native）代码的访问，下面我们就集中介绍Unity引擎中的原生对象与托管对象。</p>
           <!--noindex-->
             <div class="post-button">
@@ -414,7 +414,7 @@ private void OnPlayerGuideFinished()
     
     
     <div class="post-body" itemprop="articleBody">
-          <h3 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h3><p>目前项目组的开发工作流中，读取表格配置需要重复较多机械性的工作：首先是字段的名称和类型规定上有一定的心智负担，在多种使用渠道（如client，server）下可能要认为进行多次同步，其次是完成读表代码也比较模式化，理论上这些工作都可以由工具提供辅助并最终由工具生成代码。</p>
+          <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/lightgallery.js/1.0.1/css/lightgallery.min.css" /><div class=".article-gallery"<h3 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h3><p>目前项目组的开发工作流中，读取表格配置需要重复较多机械性的工作：首先是字段的名称和类型规定上有一定的心智负担，在多种使用渠道（如client，server）下可能要认为进行多次同步，其次是完成读表代码也比较模式化，理论上这些工作都可以由工具提供辅助并最终由工具生成代码。</p>
 <h3 id="功能概览"><a href="#功能概览" class="headerlink" title="功能概览"></a>功能概览</h3><ol>
 <li>将表格的所有字段在工具中显示，由用户来自定义表格属性：字段的类型，用途和默认值</li>
 <li>工具能够将表格属性以json形式序列化，以json文件形式进行持久化存储</li>
@@ -542,7 +542,7 @@ private void OnPlayerGuideFinished()
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="使用hexo快速进行博客搭建"><a href="#使用hexo快速进行博客搭建" class="headerlink" title="使用hexo快速进行博客搭建"></a>使用hexo快速进行博客搭建</h1><p>之前用wordpress搭建的博客需要折腾的东西太多，编辑器支持也不太好，没有Notion里记笔记来的方便（该说写个笔记两头传本来就麻烦），所以这次用hexo来搭建看看。</p>
+          <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/lightgallery.js/1.0.1/css/lightgallery.min.css" /><div class=".article-gallery"<h1 id="使用hexo快速进行博客搭建"><a href="#使用hexo快速进行博客搭建" class="headerlink" title="使用hexo快速进行博客搭建"></a>使用hexo快速进行博客搭建</h1><p>之前用wordpress搭建的博客需要折腾的东西太多，编辑器支持也不太好，没有Notion里记笔记来的方便（该说写个笔记两头传本来就麻烦），所以这次用hexo来搭建看看。</p>
 <p>部署选择了一键同步生成的网站内容到github repo上，使用pages来进行网站部署，markdown源文件再自己使用github来同步。</p>
 <p>这篇文章主要记录一下搭建网站的过程，还有给搭建的时候看的几个文档链接留个档。</p>
 <h4 id="官方文档"><a href="#官方文档" class="headerlink" title="官方文档"></a>官方文档</h4><ol>
