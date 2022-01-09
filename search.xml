@@ -343,6 +343,9 @@ marked:
 <li><input checked="" disabled="" type="checkbox"> 表格的用途（usage）不是必要字段，可以考虑去掉</li>
 <li><input checked="" disabled="" type="checkbox"> 提供自定义字段标记（tag）用于标记主键等</li>
 <li><input checked="" disabled="" type="checkbox"> 根据现成的项目组读表代码写一个伪代码模板（见csharp.txt）</li>
+<li><input disabled="" type="checkbox"> 根据伪代码模板给出终结/非终结符号与产生式</li>
+<li><input disabled="" type="checkbox"> 实现代码模板的词法，语法分析</li>
+<li><input disabled="" type="checkbox"> 实现代码模板中使用的各个功能</li>
 <li><input disabled="" type="checkbox"> 用lua / 自实现语言来结合txt文本进行内容生成？ &lt;- here</li>
 </ul>
 ]]></content>
