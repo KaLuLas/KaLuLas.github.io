@@ -265,7 +265,7 @@ marked:
 <li><input checked="" disabled="" type="checkbox"> 指定用途（usage）和生成代码模板（template）/生成代码目录之间的关联</li>
 <li><input checked="" disabled="" type="checkbox"> 传入配置文件路径，生成表名到字段的属性列表的映射</li>
 <li><input checked="" disabled="" type="checkbox"> 在不提供json文件时，仅所有字段的属性都设置为初始值</li>
-<li><input disabled="" type="checkbox"> 在提供json文件时，从json文件中读出字段的属性</li>
+<li><input checked="" disabled="" type="checkbox"> 在提供json文件时，从json文件中读出字段的属性</li>
 <li><input disabled="" type="checkbox"> 提供表名可以获取字段属性列表</li>
 <li><input disabled="" type="checkbox"> 提供表名和字段名可以获得到字段的配置信息</li>
 <li><input disabled="" type="checkbox"> 可以根据表名和字段名来设置字段的属性</li>
@@ -282,10 +282,15 @@ marked:
 </ol>
 </li>
 </ol>
-<h3 id="开发记录"><a href="#开发记录" class="headerlink" title="开发记录"></a>开发记录</h3><p>Solution: ConfigCodeGenSolution</p>
+<h3 id="开发记录"><a href="#开发记录" class="headerlink" title="开发记录"></a>开发记录</h3><p>github传送门：<a href="https://github.com/KaLuLas/ConfigCodeGen">https://github.com/KaLuLas/ConfigCodeGen</a></p>
 <p>配置json文件存放于Solution根目录下，路径先用绝对路径写死在Console的启动参数里面</p>
 <ol>
-<li>ConfigCodeGenLib: .Net Standard Library</li>
+<li>ConfigCodeGenLib: .Net Standard Library<ol>
+<li>Configuration：静态类，用于根据json文件配置工具环境</li>
+<li>ConfigManager：单例模式，用于根据配置文件和json文件生成运行时数据</li>
+<li>CodeGeneration.Generator：代码生成器</li>
+</ol>
+</li>
 <li>ConfigCodeGenConsole: 调试Library用的Console类型project</li>
 </ol>
 <h4 id="配置形式说明"><a href="#配置形式说明" class="headerlink" title="配置形式说明"></a>配置形式说明</h4><p>config.json</p>
@@ -333,11 +338,12 @@ marked:
 &#125;</code></pre>
 
 <h4 id="待办事项"><a href="#待办事项" class="headerlink" title="待办事项"></a>待办事项</h4><ul>
-<li><input disabled="" type="checkbox"> 当json文件存在时，读取json构建Attributes的属性 &lt;- here</li>
-<li><input disabled="" type="checkbox"> 将日志器独立出来，方便后面添加回调</li>
-<li><input disabled="" type="checkbox"> 表格的用途（usage）不是必要字段，可以考虑去掉</li>
-<li><input disabled="" type="checkbox"> 提供自定义字段标记（主键等）</li>
-<li><input disabled="" type="checkbox"> 用lua来结合txt文本进行内容生成？</li>
+<li><input checked="" disabled="" type="checkbox"> 当json文件存在时，读取json构建Attributes的属性</li>
+<li><input checked="" disabled="" type="checkbox"> 将日志器独立出来，方便后面添加回调</li>
+<li><input checked="" disabled="" type="checkbox"> 表格的用途（usage）不是必要字段，可以考虑去掉</li>
+<li><input checked="" disabled="" type="checkbox"> 提供自定义字段标记（tag）用于标记主键等</li>
+<li><input checked="" disabled="" type="checkbox"> 根据现成的项目组读表代码写一个伪代码模板（见csharp.txt）</li>
+<li><input disabled="" type="checkbox"> 用lua / 自实现语言来结合txt文本进行内容生成？ &lt;- here</li>
 </ul>
 ]]></content>
       <categories>
