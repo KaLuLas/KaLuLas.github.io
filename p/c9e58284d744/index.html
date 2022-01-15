@@ -20,12 +20,12 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"www.threegates.net","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.8.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null,"activeClass":"gitalk"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":true,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
-<meta name="description" content="使用hexo快速进行博客搭建之前用wordpress搭建的博客需要折腾的东西太多，编辑器支持也不太好，没有Notion里记笔记来的方便（该说写个笔记两头传本来就麻烦），所以这次用hexo来搭建看看。 部署选择了一键同步生成的网站内容到github repo上，使用pages来进行网站部署，markdown源文件再自己使用github来同步。 这篇文章主要记录一下搭建网站的过程，还有给搭建的时候看的">
+<meta name="description" content="使用hexo快速进行博客搭建 之前用wordpress搭建的博客需要折腾的东西太多，编辑器支持也不太好，没有Notion里记笔记来的方便（该说写个笔记两头传本来就麻烦），所以这次用hexo来搭建看看。 部署选择了一键同步生成的网站内容到github repo上，使用pages来进行网站部署，markdown源文件再自己使用github来同步。 这篇文章主要记录一下搭建网站的过程，还有给搭建的时候">
 <meta property="og:type" content="article">
 <meta property="og:title" content="使用hexo快速进行博客搭建">
 <meta property="og:url" content="https://www.threegates.net/p/c9e58284d744/index.html">
 <meta property="og:site_name" content="ThreeGates">
-<meta property="og:description" content="使用hexo快速进行博客搭建之前用wordpress搭建的博客需要折腾的东西太多，编辑器支持也不太好，没有Notion里记笔记来的方便（该说写个笔记两头传本来就麻烦），所以这次用hexo来搭建看看。 部署选择了一键同步生成的网站内容到github repo上，使用pages来进行网站部署，markdown源文件再自己使用github来同步。 这篇文章主要记录一下搭建网站的过程，还有给搭建的时候看的">
+<meta property="og:description" content="使用hexo快速进行博客搭建 之前用wordpress搭建的博客需要折腾的东西太多，编辑器支持也不太好，没有Notion里记笔记来的方便（该说写个笔记两头传本来就麻烦），所以这次用hexo来搭建看看。 部署选择了一键同步生成的网站内容到github repo上，使用pages来进行网站部署，markdown源文件再自己使用github来同步。 这篇文章主要记录一下搭建网站的过程，还有给搭建的时候">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://www.threegates.net/p/c9e58284d744/aliyun-dns-config.png">
 <meta property="og:image" content="https://www.threegates.net/p/c9e58284d744/image-20211224175532445.png">
@@ -124,7 +124,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8hexo%E5%BF%AB%E9%80%9F%E8%BF%9B%E8%A1%8C%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA"><span class="nav-number">1.</span> <span class="nav-text">使用hexo快速进行博客搭建</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%98%E6%96%B9%E6%96%87%E6%A1%A3"><span class="nav-number">1.0.0.1.</span> <span class="nav-text">官方文档</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%83%A8%E7%BD%B2%E7%9B%B8%E5%85%B3%EF%BC%88github-pages%EF%BC%89"><span class="nav-number">1.0.0.2.</span> <span class="nav-text">部署相关（github-pages）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BD%91%E7%AB%99%E4%B8%BB%E9%A2%98"><span class="nav-number">1.0.0.3.</span> <span class="nav-text">网站主题</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%A0%B7%E5%BC%8F%EF%BC%88layout%EF%BC%89%E8%87%AA%E5%AE%9A%E4%B9%89"><span class="nav-number">1.0.0.3.1.</span> <span class="nav-text">样式（layout）自定义</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%9B%BE%E7%89%87%E5%A2%99"><span class="nav-number">1.0.0.3.2.</span> <span class="nav-text">图片墙</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%9F%BA%E4%BA%8E%E6%A8%A1%E6%9D%BF%E8%BF%9B%E8%A1%8Chtml%E7%94%9F%E6%88%90"><span class="nav-number">1.0.0.3.3.</span> <span class="nav-text">基于模板进行html生成</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%B5%84%E6%BA%90%E6%96%87%E4%BB%B6%E5%A4%B9"><span class="nav-number">1.0.0.4.</span> <span class="nav-text">资源文件夹</span></a></li></ol></li></ol></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8hexo%E5%BF%AB%E9%80%9F%E8%BF%9B%E8%A1%8C%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA"><span class="nav-number">1.</span> <span class="nav-text"> 使用hexo快速进行博客搭建</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%98%E6%96%B9%E6%96%87%E6%A1%A3"><span class="nav-number">1.0.0.1.</span> <span class="nav-text"> 官方文档</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%83%A8%E7%BD%B2%E7%9B%B8%E5%85%B3github-pages"><span class="nav-number">1.0.0.2.</span> <span class="nav-text"> 部署相关（github-pages）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BD%91%E7%AB%99%E4%B8%BB%E9%A2%98"><span class="nav-number">1.0.0.3.</span> <span class="nav-text"> 网站主题</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%A0%B7%E5%BC%8Flayout%E8%87%AA%E5%AE%9A%E4%B9%89"><span class="nav-number">1.0.0.3.1.</span> <span class="nav-text"> 样式（layout）自定义</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%9B%BE%E7%89%87%E5%A2%99"><span class="nav-number">1.0.0.3.2.</span> <span class="nav-text"> 图片墙</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%9F%BA%E4%BA%8E%E6%A8%A1%E6%9D%BF%E8%BF%9B%E8%A1%8Chtml%E7%94%9F%E6%88%90"><span class="nav-number">1.0.0.3.3.</span> <span class="nav-text"> 基于模板进行html生成</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%B5%84%E6%BA%90%E6%96%87%E4%BB%B6%E5%A4%B9"><span class="nav-number">1.0.0.4.</span> <span class="nav-text"> 资源文件夹</span></a></li></ol></li></ol></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -139,18 +139,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">3</span>
+          <span class="site-state-item-count">4</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-count">10</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-count">9</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -283,36 +283,47 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/lightgallery.js/1.0.1/css/lightgallery.min.css" /><div class=".article-gallery"><h1 id="使用hexo快速进行博客搭建"><a href="#使用hexo快速进行博客搭建" class="headerlink" title="使用hexo快速进行博客搭建"></a>使用hexo快速进行博客搭建</h1><p>之前用wordpress搭建的博客需要折腾的东西太多，编辑器支持也不太好，没有Notion里记笔记来的方便（该说写个笔记两头传本来就麻烦），所以这次用hexo来搭建看看。</p>
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/lightgallery.js/1.0.1/css/lightgallery.min.css" /><div class=".article-gallery"><h1 id="使用hexo快速进行博客搭建"><a class="markdownIt-Anchor" href="#使用hexo快速进行博客搭建"></a> 使用hexo快速进行博客搭建</h1>
+<p>之前用wordpress搭建的博客需要折腾的东西太多，编辑器支持也不太好，没有Notion里记笔记来的方便（该说写个笔记两头传本来就麻烦），所以这次用hexo来搭建看看。</p>
 <p>部署选择了一键同步生成的网站内容到github repo上，使用pages来进行网站部署，markdown源文件再自己使用github来同步。</p>
 <p>这篇文章主要记录一下搭建网站的过程，还有给搭建的时候看的几个文档链接留个档。</p>
-<h4 id="官方文档"><a href="#官方文档" class="headerlink" title="官方文档"></a>官方文档</h4><ol>
-<li><a target="_blank" rel="noopener" href="https://hexo.io/docs/">https://hexo.io/docs/</a> </li>
+<h4 id="官方文档"><a class="markdownIt-Anchor" href="#官方文档"></a> 官方文档</h4>
+<ol>
+<li><a target="_blank" rel="noopener" href="https://hexo.io/docs/">https://hexo.io/docs/</a></li>
 <li><a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/">https://hexo.io/zh-cn/docs/</a> 中文</li>
 </ol>
-<h4 id="部署相关（github-pages）"><a href="#部署相关（github-pages）" class="headerlink" title="部署相关（github-pages）"></a>部署相关（github-pages）</h4><ol>
+<h4 id="部署相关github-pages"><a class="markdownIt-Anchor" href="#部署相关github-pages"></a> 部署相关（github-pages）</h4>
+<ol>
 <li><a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000017986794">https://segmentfault.com/a/1190000017986794</a> 一键部署</li>
 <li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/26625249">https://zhuanlan.zhihu.com/p/26625249</a> 自定义域名步骤参考，免去之前使用wordpress自己部署网站时解析的麻烦</li>
 <li><a target="_blank" rel="noopener" href="https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/about-custom-domains-and-github-pages">https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/about-custom-domains-and-github-pages</a></li>
 </ol>
 <p>自定义域名在参考了上述链接后做了一点尝试：</p>
 <ol>
-<li><p>首先域名还是使用的之前搭建wordpress用的threegates.net</p>
+<li>
+<p><a target="_blank" rel="noopener" href="http://xn--wordpressthreegates-9e93a14oimlu5fe6lt5xnh6b0l3ad0l7z9hna888hoa7605swhtc.net">首先域名还是使用的之前搭建wordpress用的threegates.net</a></p>
 </li>
-<li><p>这里开始需要做的是将域名重定向到github-pages，所以实际上<strong>需要参考的比较权威的文档是上面的链接3</strong></p>
-<span id="more"></span></li>
-<li><p>github pages建议的是使用www域，说明了使用www域使pages也会为你进行apex domain（即不带www的threegates.net）的重定向。</p>
+<li>
+<p>这里开始需要做的是将域名重定向到github-pages，所以实际上<strong>需要参考的比较权威的文档是上面的链接3</strong></p>
+<span id="more"></span>
+</li>
+<li>
+<p>github pages建议的是使用www域，说明了使用www域使pages也会为你进行apex domain（<a target="_blank" rel="noopener" href="http://xn--wwwthreegates-h50uf24dfe3b8t0f.net">即不带www的threegates.net</a>）的重定向。</p>
 <blockquote>
 <p>We recommend always using a <code>www</code> subdomain, even if you also use an apex domain. When you create a new site with an apex domain, we automatically attempt to secure the <code>www</code> subdomain for use when serving your site’s content. If you configure a <code>www</code> subdomain, we automatically attempt to secure the associated apex domain.</p>
 </blockquote>
 </li>
-<li><p>参考“Managing a custom domain for your GitHub Pages site”，首先在gtihub repo的settings-&gt;pages目录下配置Custom Domain，这里使用<code>www.threegates.net</code></p>
+<li>
+<p>参考“Managing a custom domain for your GitHub Pages site”，首先在gtihub repo的settings-&gt;pages目录下配置Custom Domain，这里使用<code>www.threegates.net</code></p>
 </li>
-<li><p>在阿里云的DNS解析中配置，这里应该将<code>www.threegates.net</code>使用CNAME形式解析到我的<code>kalulas.github.io</code>，且通过dig工具和后续文档可以得知，如果配置了<code>threegates.net</code>到github pages提供的四个DNS（见下文），github pages会帮你重定向到网页内容，而<code>www.threegates.net</code>配置到<code>kalulas.github.io</code>之后，后面其实也是解析到github.pages的DNS</p>
+<li>
+<p>在阿里云的DNS解析中配置，这里应该将<code>www.threegates.net</code>使用CNAME形式解析到我的<code>kalulas.github.io</code>，且通过dig工具和后续文档可以得知，如果配置了<code>threegates.net</code>到github pages提供的四个DNS（见下文），github pages会帮你重定向到网页内容，而<code>www.threegates.net</code>配置到<code>kalulas.github.io</code>之后，后面其实也是解析到github.pages的DNS</p>
 </li>
-<li><p>配置如图：<a href="/p/c9e58284d744/aliyun-dns-config.png" title="aliyun dns configuration" class="gallery-item"><img src="/p/c9e58284d744/aliyun-dns-config.png" alt="aliyun dns configuration"></a></p>
+<li>
+<p>配置如图：<a href="aliyun-dns-config.png" title="aliyun dns configuration" class="gallery-item"><img src="aliyun-dns-config.png" alt="aliyun dns configuration" /></a></p>
 </li>
-<li><p>dig命令解析结果如下（threegates.net的解析情况也一样）：</p>
+<li>
+<p>dig命令解析结果如下（threegates.net的解析情况也一样）：</p>
 <pre class="line-numbers language-none"><code class="language-none">$ dig kalulas.github.io +nostats +nocomments +nocmd
 ; &lt;&lt;&gt;&gt; DiG 9.11.4-P2-RedHat-9.11.4-26.P2.el7_9.8 &lt;&lt;&gt;&gt; kalulas.github.io +nostats +nocomments +nocmd
 ;; global options: +cmd
@@ -321,7 +332,6 @@ kalulas.github.io.      3600    IN      A       185.199.109.153
 kalulas.github.io.      3600    IN      A       185.199.111.153
 kalulas.github.io.      3600    IN      A       185.199.110.153
 kalulas.github.io.      3600    IN      A       185.199.108.153</code></pre>
-
 <pre class="line-numbers language-none"><code class="language-none">$ dig www.threegates.net +nostats +nocomment
 ; &lt;&lt;&gt;&gt; DiG 9.11.4-P2-RedHat-9.11.4-26.P2.el7_9.8 &lt;&lt;&gt;&gt; www.threegates.net +nostats +nocomment
 ;; global options: +cmd
@@ -330,22 +340,28 @@ www.threegates.net.     600     IN      CNAME   kalulas.github.io.
 kalulas.github.io.      3600    IN      A       185.199.109.153
 kalulas.github.io.      3600    IN      A       185.199.111.153
 kalulas.github.io.      3600    IN      A       185.199.110.153
-kalulas.github.io.      3600    IN      A       185.199.108.153</code></pre></li>
-<li><p>最后，在第4步中修改Custom Domain会添加一个文件CNAME到repo的根目录下，但是由于使用了一键部署，实际上同步的目录是~/…/your_site/.deploy_git，可以在这个目录下同步，但是这个目录是由~/…/your_site/source生成而来的，所以得在source下也创建一个CNAME文件，内容就用github为你生成的<code>www.threegates.net</code>即可</p>
+kalulas.github.io.      3600    IN      A       185.199.108.153</code></pre>
 </li>
-<li><p>最后，文档提示了可以enforce HTTPS，这个就作为可选项就晚点再做吧</p>
+<li>
+<p>最后，在第4步中修改Custom Domain会添加一个文件CNAME到repo的根目录下，但是由于使用了一键部署，实际上同步的目录是~/…/your_site/.deploy_git，可以在这个目录下同步，但是这个目录是由~/…/your_site/source生成而来的，所以得在source下也创建一个CNAME文件，内容就用github为你生成的<code>www.threegates.net</code>即可</p>
+</li>
+<li>
+<p>最后，文档提示了可以enforce HTTPS，这个就作为可选项就晚点再做吧</p>
 </li>
 </ol>
-<h4 id="网站主题"><a href="#网站主题" class="headerlink" title="网站主题"></a>网站主题</h4><ol>
+<h4 id="网站主题"><a class="markdownIt-Anchor" href="#网站主题"></a> 网站主题</h4>
+<ol>
 <li><a target="_blank" rel="noopener" href="https://theme-next.iissnan.com/getting-started.html">https://theme-next.iissnan.com/getting-started.html</a> 现在用的是NEXT主题，主题的参考文档也挺详细。纠正一个文档中发现的错误：文档中设置语言使用的language是zh-Hans，但现在使用的是zh-CN，可能是没更新的原因</li>
 <li><a target="_blank" rel="noopener" href="https://theme-next.js.org/docs/">https://theme-next.js.org/docs/</a> 一样是NEXT主题的文档，但是英文版的似乎内容更全一点，阅读起来也不费劲</li>
 </ol>
-<h5 id="样式（layout）自定义"><a href="#样式（layout）自定义" class="headerlink" title="样式（layout）自定义"></a>样式（layout）自定义</h5><p>阅读了hexo和NEXT的模板相关文章，简单看了下关联的njx，ejs文件，想通过is_post()或者is_home()的helper方法实现一下仅在文章页显示阅读进度条的效果，但是似乎返回结果不正确，现在在next的github页提了issue还在等回复。</p>
+<h5 id="样式layout自定义"><a class="markdownIt-Anchor" href="#样式layout自定义"></a> 样式（layout）自定义</h5>
+<p>阅读了hexo和NEXT的模板相关文章，简单看了下关联的njx，ejs文件，想通过is_post()或者is_home()的helper方法实现一下仅在文章页显示阅读进度条的效果，但是似乎返回结果不正确，现在在next的github页提了issue还在等回复。</p>
 <p>njx中的语法与ejs不完全相同，简单参考了非官方文档：</p>
 <ol>
 <li><a target="_blank" rel="noopener" href="https://carrion.cc/20210201/85bc1840d3ea.html">https://carrion.cc/20210201/85bc1840d3ea.html</a> 核对了一下njk中的helper语法</li>
 </ol>
-<h5 id="图片墙"><a href="#图片墙" class="headerlink" title="图片墙"></a>图片墙</h5><p>选用了hexo-light-gallery插件，传送门 <a target="_blank" rel="noopener" href="https://github.com/lzane/hexo-light-gallery">https://github.com/lzane/hexo-light-gallery</a> 按照教程安装了hexo-light-gallery，对node_modules/hexo-light-gallery/src/renderer.js 做了一点修改</p>
+<h5 id="图片墙"><a class="markdownIt-Anchor" href="#图片墙"></a> 图片墙</h5>
+<p>选用了hexo-light-gallery插件，传送门 <a target="_blank" rel="noopener" href="https://github.com/lzane/hexo-light-gallery">https://github.com/lzane/hexo-light-gallery</a> 按照教程安装了hexo-light-gallery，对node_modules/hexo-light-gallery/src/renderer.js 做了一点修改</p>
 <pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">&#x2F;&#x2F; node_modules&#x2F;hexo-light-gallery&#x2F;src&#x2F;renderer.js 
 function addTag(data)&#123;
     var config &#x3D; this.config.lightgallery;
@@ -386,7 +402,6 @@ function render(data)&#123;
 &#125;;
 
 </code></pre>
-
 <p>在lightgallery提供的插件（插件的插件…）中补充了三个插件：</p>
 <ol>
 <li>lg-thumbnail: 提供图片的缩略图</li>
@@ -408,9 +423,9 @@ lightgallery:
     lg-fullscreen: &#x2F;js&#x2F;lg-fullscreen.min.js
 #   lg-pager:
 </code></pre>
-
-<h5 id="基于模板进行html生成"><a href="#基于模板进行html生成" class="headerlink" title="基于模板进行html生成"></a>基于模板进行html生成</h5><p>很在意html中的一些代码引用标签&lt;script&gt;是用什么逻辑加上的，如图上的这种</p>
-<p><a href="/p/c9e58284d744/image-20211224175532445.png" title="html中的代码标签示例" class="gallery-item"><img src="/p/c9e58284d744/image-20211224175532445.png" alt="html中的代码标签示例"></a></p>
+<h5 id="基于模板进行html生成"><a class="markdownIt-Anchor" href="#基于模板进行html生成"></a> 基于模板进行html生成</h5>
+<p>很在意html中的一些代码引用标签&lt;script&gt;是用什么逻辑加上的，如图上的这种</p>
+<p><a href="image-20211224175532445.png" title="html中的代码标签示例" class="gallery-item"><img src="image-20211224175532445.png" alt="html中的代码标签示例" /></a></p>
 <p>要知道它的生成机制才方便做一些js代码上传，还有cdn上的资源放到本地这样的操作，进行了一些排查大致定位下下面这些信息：</p>
 <ol>
 <li>/node_modules/hexo-theme-next/layout/_scripts/index.njk 文件里可以利用next_js()加载了这些next提供的静态js文件</li>
@@ -436,7 +451,6 @@ lightgallery:
 19   &#123;&#123;- next_js(&#39;pjax.js&#39;) &#125;&#125;
 20 &#123;%- endif %&#125;
 </code></pre>
-
 <p>而在vendors.njk下可以看到</p>
 <pre class="line-numbers language-none"><code class="language-none">1 &#123;%- if theme.canvas_ribbon.enable %&#125;
 2   &lt;script size&#x3D;&quot;&#123;&#123; theme.canvas_ribbon.size &#125;&#125;&quot; alpha&#x3D;&quot;&#123;&#123; theme.canvas_ribbon.alpha &#125;&#125;&quot; zIndex&#x3D;&quot;&#123;&#123; theme.canvas_ribbon.zIndex &#125;&#125;&quot; src&#x3D;&quot;&#123;&#123; theme.vendors.canvas_ribbon.url     &#125;&#125;&quot;&gt;&lt;&#x2F;script&gt;
@@ -446,7 +460,6 @@ lightgallery:
 6   &#123;&#123; next_vendors(name) &#125;&#125;
 7 &#123;%- endfor %&#125;
 </code></pre>
-
 <p>加载的就是js_vendors下声明所有js资源</p>
 <ol start="2">
 <li>像prism-core的这些cdn上获取的js资源，先通过配置来决定是否加载，添加cdn的逻辑如下</li>
@@ -483,7 +496,6 @@ lightgallery:
 29   return vendors;
 30 &#125;);
 </code></pre>
-
 <p>在/node_modules/hexo-theme-next/layout/_scripts/vendors.njk下面遍历js_vendors列表，遍历逻辑就是调用scripts/helpers/engine.js中注册的next_vendors，将代码资源的名字传入。而next_vendors的逻辑就是在theme配置的vendors字段中找相应的配置内容。</p>
 <pre class="line-numbers language-none"><code class="language-none">32 hexo.extend.helper.register(&#39;next_vendors&#39;, function(name) &#123;
 33   const &#123; url, integrity &#125; &#x3D; this.theme.vendors[name];
@@ -496,18 +508,17 @@ lightgallery:
 40   return &#96;&lt;script src&#x3D;&quot;$&#123;url&#125;&quot;&gt;&lt;&#x2F;script&gt;&#96;;
 41 &#125;);
 </code></pre>
-
 <ol start="3">
 <li>所以如果想加一个js文件资源引用，可以考虑在index.njk就利用next_js()加上，也可以考虑放在next-vendors.js的vendors列表里面，然后再到theme的_config.yml文件里面去配置。</li>
 </ol>
-<h4 id="资源文件夹"><a href="#资源文件夹" class="headerlink" title="资源文件夹"></a>资源文件夹</h4><p>网站需要显示一些像网站图标和用户画像，还有文章中的截图这样的资源，参考hexo文档，最后采用的方式是将配置项<code>post_asset_folder</code>设置为true，这会让hexo在新建post时为这个post新建一个同名资源文件夹。然后使用<a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo-renderer-marked">hexo-renderer-marked</a> 3.1.0 的特性，在文章中直接使用markdown图片格式，图片链接直接填写图片文件名，hexo会将资源请求重定向到post的同名资源文件夹中。</p>
+<h4 id="资源文件夹"><a class="markdownIt-Anchor" href="#资源文件夹"></a> 资源文件夹</h4>
+<p>网站需要显示一些像网站图标和用户画像，还有文章中的截图这样的资源，参考hexo文档，最后采用的方式是将配置项<code>post_asset_folder</code>设置为true，这会让hexo在新建post时为这个post新建一个同名资源文件夹。然后使用<a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo-renderer-marked">hexo-renderer-marked</a> 3.1.0 的特性，在文章中直接使用markdown图片格式，图片链接直接填写图片文件名，hexo会将资源请求重定向到post的同名资源文件夹中。</p>
 <p>值得一提的是也可以在其他post中使用相对路径来索引到这些资源，为post之间共享资源提供了思路。</p>
 <p>_config.yml配置形式如下：</p>
 <pre class="line-numbers language-none"><code class="language-none">post_asset_folder: true
 marked:
   prependRoot: true
   postAsset: true</code></pre>
-
 </div><script src="https://cdn.jsdelivr.net/lightgallery.js/1.0.1/js/lightgallery.min.js"></script><script src="/js/lg-thumbnail.min.js"></script><script src="/js/lg-zoom.min.js"></script><script src="/js/lg-fullscreen.min.js"></script><script>if (typeof lightGallery !== 'undefined') {
         var options = {
             selector: '.gallery-item'
@@ -603,6 +614,14 @@ marked:
   <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
 
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css" integrity="sha256-9/mhQQwkpU5okPfM5l0v3LnP9xtc6JK8dKW0/WlGaUc=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/contrib/copy-tex.min.css" integrity="sha256-+oItviPaTmqjDhk4y4fLLUIMgRQYDV/ZyrRNvQiebWM=" crossorigin="anonymous">
+  <script class="next-config" data-name="katex" type="application/json">{"copy_tex_js":{"url":"https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/contrib/copy-tex.min.js","integrity":"sha256-etSqbSVF4+Lwe8MGk/Vanc1sR+mWv+qOG73fxWw9p94="}}</script>
+  <script src="/js/third-party/math/katex.js"></script>
 
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.css" integrity="sha256-AJnUHL7dBv6PGaeyPQJcgQPDjt/Hn/PvYZde1iqfp8U=" crossorigin="anonymous">

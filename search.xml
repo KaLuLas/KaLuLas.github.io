@@ -3,36 +3,47 @@
   <entry>
     <title>使用hexo快速进行博客搭建</title>
     <url>/p/c9e58284d744/</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/lightgallery.js/1.0.1/css/lightgallery.min.css" /><div class=".article-gallery"><h1 id="使用hexo快速进行博客搭建"><a href="#使用hexo快速进行博客搭建" class="headerlink" title="使用hexo快速进行博客搭建"></a>使用hexo快速进行博客搭建</h1><p>之前用wordpress搭建的博客需要折腾的东西太多，编辑器支持也不太好，没有Notion里记笔记来的方便（该说写个笔记两头传本来就麻烦），所以这次用hexo来搭建看看。</p>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/lightgallery.js/1.0.1/css/lightgallery.min.css" /><div class=".article-gallery"><h1 id="使用hexo快速进行博客搭建"><a class="markdownIt-Anchor" href="#使用hexo快速进行博客搭建"></a> 使用hexo快速进行博客搭建</h1>
+<p>之前用wordpress搭建的博客需要折腾的东西太多，编辑器支持也不太好，没有Notion里记笔记来的方便（该说写个笔记两头传本来就麻烦），所以这次用hexo来搭建看看。</p>
 <p>部署选择了一键同步生成的网站内容到github repo上，使用pages来进行网站部署，markdown源文件再自己使用github来同步。</p>
 <p>这篇文章主要记录一下搭建网站的过程，还有给搭建的时候看的几个文档链接留个档。</p>
-<h4 id="官方文档"><a href="#官方文档" class="headerlink" title="官方文档"></a>官方文档</h4><ol>
-<li><a href="https://hexo.io/docs/">https://hexo.io/docs/</a> </li>
+<h4 id="官方文档"><a class="markdownIt-Anchor" href="#官方文档"></a> 官方文档</h4>
+<ol>
+<li><a href="https://hexo.io/docs/">https://hexo.io/docs/</a></li>
 <li><a href="https://hexo.io/zh-cn/docs/">https://hexo.io/zh-cn/docs/</a> 中文</li>
 </ol>
-<h4 id="部署相关（github-pages）"><a href="#部署相关（github-pages）" class="headerlink" title="部署相关（github-pages）"></a>部署相关（github-pages）</h4><ol>
+<h4 id="部署相关github-pages"><a class="markdownIt-Anchor" href="#部署相关github-pages"></a> 部署相关（github-pages）</h4>
+<ol>
 <li><a href="https://segmentfault.com/a/1190000017986794">https://segmentfault.com/a/1190000017986794</a> 一键部署</li>
 <li><a href="https://zhuanlan.zhihu.com/p/26625249">https://zhuanlan.zhihu.com/p/26625249</a> 自定义域名步骤参考，免去之前使用wordpress自己部署网站时解析的麻烦</li>
 <li><a href="https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/about-custom-domains-and-github-pages">https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/about-custom-domains-and-github-pages</a></li>
 </ol>
 <p>自定义域名在参考了上述链接后做了一点尝试：</p>
 <ol>
-<li><p>首先域名还是使用的之前搭建wordpress用的threegates.net</p>
+<li>
+<p><a href="http://xn--wordpressthreegates-9e93a14oimlu5fe6lt5xnh6b0l3ad0l7z9hna888hoa7605swhtc.net">首先域名还是使用的之前搭建wordpress用的threegates.net</a></p>
 </li>
-<li><p>这里开始需要做的是将域名重定向到github-pages，所以实际上<strong>需要参考的比较权威的文档是上面的链接3</strong></p>
-<span id="more"></span></li>
-<li><p>github pages建议的是使用www域，说明了使用www域使pages也会为你进行apex domain（即不带www的threegates.net）的重定向。</p>
+<li>
+<p>这里开始需要做的是将域名重定向到github-pages，所以实际上<strong>需要参考的比较权威的文档是上面的链接3</strong></p>
+<span id="more"></span>
+</li>
+<li>
+<p>github pages建议的是使用www域，说明了使用www域使pages也会为你进行apex domain（<a href="http://xn--wwwthreegates-h50uf24dfe3b8t0f.net">即不带www的threegates.net</a>）的重定向。</p>
 <blockquote>
 <p>We recommend always using a <code>www</code> subdomain, even if you also use an apex domain. When you create a new site with an apex domain, we automatically attempt to secure the <code>www</code> subdomain for use when serving your site’s content. If you configure a <code>www</code> subdomain, we automatically attempt to secure the associated apex domain.</p>
 </blockquote>
 </li>
-<li><p>参考“Managing a custom domain for your GitHub Pages site”，首先在gtihub repo的settings-&gt;pages目录下配置Custom Domain，这里使用<code>www.threegates.net</code></p>
+<li>
+<p>参考“Managing a custom domain for your GitHub Pages site”，首先在gtihub repo的settings-&gt;pages目录下配置Custom Domain，这里使用<code>www.threegates.net</code></p>
 </li>
-<li><p>在阿里云的DNS解析中配置，这里应该将<code>www.threegates.net</code>使用CNAME形式解析到我的<code>kalulas.github.io</code>，且通过dig工具和后续文档可以得知，如果配置了<code>threegates.net</code>到github pages提供的四个DNS（见下文），github pages会帮你重定向到网页内容，而<code>www.threegates.net</code>配置到<code>kalulas.github.io</code>之后，后面其实也是解析到github.pages的DNS</p>
+<li>
+<p>在阿里云的DNS解析中配置，这里应该将<code>www.threegates.net</code>使用CNAME形式解析到我的<code>kalulas.github.io</code>，且通过dig工具和后续文档可以得知，如果配置了<code>threegates.net</code>到github pages提供的四个DNS（见下文），github pages会帮你重定向到网页内容，而<code>www.threegates.net</code>配置到<code>kalulas.github.io</code>之后，后面其实也是解析到github.pages的DNS</p>
 </li>
-<li><p>配置如图：<a href="/p/c9e58284d744/aliyun-dns-config.png" title="aliyun dns configuration" class="gallery-item"><img src="/p/c9e58284d744/aliyun-dns-config.png" alt="aliyun dns configuration"></a></p>
+<li>
+<p>配置如图：<a href="aliyun-dns-config.png" title="aliyun dns configuration" class="gallery-item"><img src="aliyun-dns-config.png" alt="aliyun dns configuration" /></a></p>
 </li>
-<li><p>dig命令解析结果如下（threegates.net的解析情况也一样）：</p>
+<li>
+<p>dig命令解析结果如下（threegates.net的解析情况也一样）：</p>
 <pre class="line-numbers language-none"><code class="language-none">$ dig kalulas.github.io +nostats +nocomments +nocmd
 ; &lt;&lt;&gt;&gt; DiG 9.11.4-P2-RedHat-9.11.4-26.P2.el7_9.8 &lt;&lt;&gt;&gt; kalulas.github.io +nostats +nocomments +nocmd
 ;; global options: +cmd
@@ -41,7 +52,6 @@ kalulas.github.io.      3600    IN      A       185.199.109.153
 kalulas.github.io.      3600    IN      A       185.199.111.153
 kalulas.github.io.      3600    IN      A       185.199.110.153
 kalulas.github.io.      3600    IN      A       185.199.108.153</code></pre>
-
 <pre class="line-numbers language-none"><code class="language-none">$ dig www.threegates.net +nostats +nocomment
 ; &lt;&lt;&gt;&gt; DiG 9.11.4-P2-RedHat-9.11.4-26.P2.el7_9.8 &lt;&lt;&gt;&gt; www.threegates.net +nostats +nocomment
 ;; global options: +cmd
@@ -50,22 +60,28 @@ www.threegates.net.     600     IN      CNAME   kalulas.github.io.
 kalulas.github.io.      3600    IN      A       185.199.109.153
 kalulas.github.io.      3600    IN      A       185.199.111.153
 kalulas.github.io.      3600    IN      A       185.199.110.153
-kalulas.github.io.      3600    IN      A       185.199.108.153</code></pre></li>
-<li><p>最后，在第4步中修改Custom Domain会添加一个文件CNAME到repo的根目录下，但是由于使用了一键部署，实际上同步的目录是~/…/your_site/.deploy_git，可以在这个目录下同步，但是这个目录是由~/…/your_site/source生成而来的，所以得在source下也创建一个CNAME文件，内容就用github为你生成的<code>www.threegates.net</code>即可</p>
+kalulas.github.io.      3600    IN      A       185.199.108.153</code></pre>
 </li>
-<li><p>最后，文档提示了可以enforce HTTPS，这个就作为可选项就晚点再做吧</p>
+<li>
+<p>最后，在第4步中修改Custom Domain会添加一个文件CNAME到repo的根目录下，但是由于使用了一键部署，实际上同步的目录是~/…/your_site/.deploy_git，可以在这个目录下同步，但是这个目录是由~/…/your_site/source生成而来的，所以得在source下也创建一个CNAME文件，内容就用github为你生成的<code>www.threegates.net</code>即可</p>
+</li>
+<li>
+<p>最后，文档提示了可以enforce HTTPS，这个就作为可选项就晚点再做吧</p>
 </li>
 </ol>
-<h4 id="网站主题"><a href="#网站主题" class="headerlink" title="网站主题"></a>网站主题</h4><ol>
+<h4 id="网站主题"><a class="markdownIt-Anchor" href="#网站主题"></a> 网站主题</h4>
+<ol>
 <li><a href="https://theme-next.iissnan.com/getting-started.html">https://theme-next.iissnan.com/getting-started.html</a> 现在用的是NEXT主题，主题的参考文档也挺详细。纠正一个文档中发现的错误：文档中设置语言使用的language是zh-Hans，但现在使用的是zh-CN，可能是没更新的原因</li>
 <li><a href="https://theme-next.js.org/docs/">https://theme-next.js.org/docs/</a> 一样是NEXT主题的文档，但是英文版的似乎内容更全一点，阅读起来也不费劲</li>
 </ol>
-<h5 id="样式（layout）自定义"><a href="#样式（layout）自定义" class="headerlink" title="样式（layout）自定义"></a>样式（layout）自定义</h5><p>阅读了hexo和NEXT的模板相关文章，简单看了下关联的njx，ejs文件，想通过is_post()或者is_home()的helper方法实现一下仅在文章页显示阅读进度条的效果，但是似乎返回结果不正确，现在在next的github页提了issue还在等回复。</p>
+<h5 id="样式layout自定义"><a class="markdownIt-Anchor" href="#样式layout自定义"></a> 样式（layout）自定义</h5>
+<p>阅读了hexo和NEXT的模板相关文章，简单看了下关联的njx，ejs文件，想通过is_post()或者is_home()的helper方法实现一下仅在文章页显示阅读进度条的效果，但是似乎返回结果不正确，现在在next的github页提了issue还在等回复。</p>
 <p>njx中的语法与ejs不完全相同，简单参考了非官方文档：</p>
 <ol>
 <li><a href="https://carrion.cc/20210201/85bc1840d3ea.html">https://carrion.cc/20210201/85bc1840d3ea.html</a> 核对了一下njk中的helper语法</li>
 </ol>
-<h5 id="图片墙"><a href="#图片墙" class="headerlink" title="图片墙"></a>图片墙</h5><p>选用了hexo-light-gallery插件，传送门 <a href="https://github.com/lzane/hexo-light-gallery">https://github.com/lzane/hexo-light-gallery</a> 按照教程安装了hexo-light-gallery，对node_modules/hexo-light-gallery/src/renderer.js 做了一点修改</p>
+<h5 id="图片墙"><a class="markdownIt-Anchor" href="#图片墙"></a> 图片墙</h5>
+<p>选用了hexo-light-gallery插件，传送门 <a href="https://github.com/lzane/hexo-light-gallery">https://github.com/lzane/hexo-light-gallery</a> 按照教程安装了hexo-light-gallery，对node_modules/hexo-light-gallery/src/renderer.js 做了一点修改</p>
 <pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">&#x2F;&#x2F; node_modules&#x2F;hexo-light-gallery&#x2F;src&#x2F;renderer.js 
 function addTag(data)&#123;
     var config &#x3D; this.config.lightgallery;
@@ -106,7 +122,6 @@ function render(data)&#123;
 &#125;;
 
 </code></pre>
-
 <p>在lightgallery提供的插件（插件的插件…）中补充了三个插件：</p>
 <ol>
 <li>lg-thumbnail: 提供图片的缩略图</li>
@@ -128,9 +143,9 @@ lightgallery:
     lg-fullscreen: &#x2F;js&#x2F;lg-fullscreen.min.js
 #   lg-pager:
 </code></pre>
-
-<h5 id="基于模板进行html生成"><a href="#基于模板进行html生成" class="headerlink" title="基于模板进行html生成"></a>基于模板进行html生成</h5><p>很在意html中的一些代码引用标签&lt;script&gt;是用什么逻辑加上的，如图上的这种</p>
-<p><a href="/p/c9e58284d744/image-20211224175532445.png" title="html中的代码标签示例" class="gallery-item"><img src="/p/c9e58284d744/image-20211224175532445.png" alt="html中的代码标签示例"></a></p>
+<h5 id="基于模板进行html生成"><a class="markdownIt-Anchor" href="#基于模板进行html生成"></a> 基于模板进行html生成</h5>
+<p>很在意html中的一些代码引用标签&lt;script&gt;是用什么逻辑加上的，如图上的这种</p>
+<p><a href="image-20211224175532445.png" title="html中的代码标签示例" class="gallery-item"><img src="image-20211224175532445.png" alt="html中的代码标签示例" /></a></p>
 <p>要知道它的生成机制才方便做一些js代码上传，还有cdn上的资源放到本地这样的操作，进行了一些排查大致定位下下面这些信息：</p>
 <ol>
 <li>/node_modules/hexo-theme-next/layout/_scripts/index.njk 文件里可以利用next_js()加载了这些next提供的静态js文件</li>
@@ -156,7 +171,6 @@ lightgallery:
 19   &#123;&#123;- next_js(&#39;pjax.js&#39;) &#125;&#125;
 20 &#123;%- endif %&#125;
 </code></pre>
-
 <p>而在vendors.njk下可以看到</p>
 <pre class="line-numbers language-none"><code class="language-none">1 &#123;%- if theme.canvas_ribbon.enable %&#125;
 2   &lt;script size&#x3D;&quot;&#123;&#123; theme.canvas_ribbon.size &#125;&#125;&quot; alpha&#x3D;&quot;&#123;&#123; theme.canvas_ribbon.alpha &#125;&#125;&quot; zIndex&#x3D;&quot;&#123;&#123; theme.canvas_ribbon.zIndex &#125;&#125;&quot; src&#x3D;&quot;&#123;&#123; theme.vendors.canvas_ribbon.url     &#125;&#125;&quot;&gt;&lt;&#x2F;script&gt;
@@ -166,7 +180,6 @@ lightgallery:
 6   &#123;&#123; next_vendors(name) &#125;&#125;
 7 &#123;%- endfor %&#125;
 </code></pre>
-
 <p>加载的就是js_vendors下声明所有js资源</p>
 <ol start="2">
 <li>像prism-core的这些cdn上获取的js资源，先通过配置来决定是否加载，添加cdn的逻辑如下</li>
@@ -203,7 +216,6 @@ lightgallery:
 29   return vendors;
 30 &#125;);
 </code></pre>
-
 <p>在/node_modules/hexo-theme-next/layout/_scripts/vendors.njk下面遍历js_vendors列表，遍历逻辑就是调用scripts/helpers/engine.js中注册的next_vendors，将代码资源的名字传入。而next_vendors的逻辑就是在theme配置的vendors字段中找相应的配置内容。</p>
 <pre class="line-numbers language-none"><code class="language-none">32 hexo.extend.helper.register(&#39;next_vendors&#39;, function(name) &#123;
 33   const &#123; url, integrity &#125; &#x3D; this.theme.vendors[name];
@@ -216,18 +228,17 @@ lightgallery:
 40   return &#96;&lt;script src&#x3D;&quot;$&#123;url&#125;&quot;&gt;&lt;&#x2F;script&gt;&#96;;
 41 &#125;);
 </code></pre>
-
 <ol start="3">
 <li>所以如果想加一个js文件资源引用，可以考虑在index.njk就利用next_js()加上，也可以考虑放在next-vendors.js的vendors列表里面，然后再到theme的_config.yml文件里面去配置。</li>
 </ol>
-<h4 id="资源文件夹"><a href="#资源文件夹" class="headerlink" title="资源文件夹"></a>资源文件夹</h4><p>网站需要显示一些像网站图标和用户画像，还有文章中的截图这样的资源，参考hexo文档，最后采用的方式是将配置项<code>post_asset_folder</code>设置为true，这会让hexo在新建post时为这个post新建一个同名资源文件夹。然后使用<a href="https://github.com/hexojs/hexo-renderer-marked">hexo-renderer-marked</a> 3.1.0 的特性，在文章中直接使用markdown图片格式，图片链接直接填写图片文件名，hexo会将资源请求重定向到post的同名资源文件夹中。</p>
+<h4 id="资源文件夹"><a class="markdownIt-Anchor" href="#资源文件夹"></a> 资源文件夹</h4>
+<p>网站需要显示一些像网站图标和用户画像，还有文章中的截图这样的资源，参考hexo文档，最后采用的方式是将配置项<code>post_asset_folder</code>设置为true，这会让hexo在新建post时为这个post新建一个同名资源文件夹。然后使用<a href="https://github.com/hexojs/hexo-renderer-marked">hexo-renderer-marked</a> 3.1.0 的特性，在文章中直接使用markdown图片格式，图片链接直接填写图片文件名，hexo会将资源请求重定向到post的同名资源文件夹中。</p>
 <p>值得一提的是也可以在其他post中使用相对路径来索引到这些资源，为post之间共享资源提供了思路。</p>
 <p>_config.yml配置形式如下：</p>
 <pre class="line-numbers language-none"><code class="language-none">post_asset_folder: true
 marked:
   prependRoot: true
   postAsset: true</code></pre>
-
 </div><script src="https://cdn.jsdelivr.net/lightgallery.js/1.0.1/js/lightgallery.min.js"></script><script src="/js/lg-thumbnail.min.js"></script><script src="/js/lg-zoom.min.js"></script><script src="/js/lg-fullscreen.min.js"></script><script>if (typeof lightGallery !== 'undefined') {
         var options = {
             selector: '.gallery-item'
@@ -246,35 +257,40 @@ marked:
   <entry>
     <title>关于配置代码生成器的构想</title>
     <url>/p/ab7a58fcc8d2/</url>
-    <content><![CDATA[<h3 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h3><p>目前项目组的开发工作流中，读取表格配置需要重复较多机械性的工作：首先是字段的名称和类型规定上有一定的心智负担，在多种使用渠道（如client，server）下可能要认为进行多次同步，其次是完成读表代码也比较模式化，理论上这些工作都可以由工具提供辅助并最终由工具生成代码。</p>
-<h3 id="功能概览"><a href="#功能概览" class="headerlink" title="功能概览"></a>功能概览</h3><ol>
+    <content><![CDATA[<h3 id="需求"><a class="markdownIt-Anchor" href="#需求"></a> 需求</h3>
+<p>目前项目组的开发工作流中，读取表格配置需要重复较多机械性的工作：首先是字段的名称和类型规定上有一定的心智负担，在多种使用渠道（如client，server）下可能要认为进行多次同步，其次是完成读表代码也比较模式化，理论上这些工作都可以由工具提供辅助并最终由工具生成代码。</p>
+<h3 id="功能概览"><a class="markdownIt-Anchor" href="#功能概览"></a> 功能概览</h3>
+<ol>
 <li>将表格的所有字段在工具中显示，由用户来自定义表格属性：字段的类型，用途和默认值</li>
 <li>工具能够将表格属性以json形式序列化，以json文件形式进行持久化存储</li>
 <li>工具能够依据表格属性以及用户自定义的代码模板来生成读表代码</li>
 </ol>
-<h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p>表名：即配置文件的文件名</p>
+<h3 id="定义"><a class="markdownIt-Anchor" href="#定义"></a> 定义</h3>
+<p>表名：即配置文件的文件名</p>
 <p>字段：即配置表中有实际用途的一列</p>
 <p>读表代码：并不提供从资源文件中读取配置数据的功能，仅提供从配置数据解析出对应类型字段的功能</p>
 <span id="more"></span>
-
-<h3 id="工具需求文档"><a href="#工具需求文档" class="headerlink" title="工具需求文档"></a>工具需求文档</h3><p>csv只是配置的一种形式，希望能兼容所有表格类型的配置</p>
+<h3 id="工具需求文档"><a class="markdownIt-Anchor" href="#工具需求文档"></a> 工具需求文档</h3>
+<p>csv只是配置的一种形式，希望能兼容所有表格类型的配置</p>
 <ol>
-<li>ConfigCodeGenLib：以dll的形式提供基础功能，包括<ul>
-<li><input checked="" disabled="" type="checkbox"> 指定表格的字段可以有有哪些用途（usage）和类型（type），包括值类型与容器类型</li>
-<li><input checked="" disabled="" type="checkbox"> 指定生成代码模板目录和生成代码目录，生成读表代码时从这些目录读取</li>
-<li><input checked="" disabled="" type="checkbox"> 指定用途（usage）和生成代码模板（template）/生成代码目录之间的关联</li>
-<li><input checked="" disabled="" type="checkbox"> 传入配置文件路径，生成表名到字段的属性列表的映射</li>
-<li><input checked="" disabled="" type="checkbox"> 在不提供json文件时，仅所有字段的属性都设置为初始值</li>
-<li><input checked="" disabled="" type="checkbox"> 在提供json文件时，从json文件中读出字段的属性</li>
-<li><input disabled="" type="checkbox"> 提供表名可以获取字段属性列表</li>
-<li><input disabled="" type="checkbox"> 提供表名和字段名可以获得到字段的配置信息</li>
-<li><input disabled="" type="checkbox"> 可以根据表名和字段名来设置字段的属性</li>
-<li><input checked="" disabled="" type="checkbox"> 传入存储路径，可以将表格的配置属性以json形式写入</li>
-<li><input disabled="" type="checkbox"> 指定表名和用途，可以根据生成代码模板来生成读表代码（这里需要提供特殊的语法解析，提供给用户一定的自由度，代码模板需要支持if，for等控制结构）</li>
-<li><input disabled="" type="checkbox"> …</li>
+<li>ConfigCodeGenLib：以dll的形式提供基础功能，包括
+<ul>
+<li>[x] 指定表格的字段可以有有哪些用途（usage）和类型（type），包括值类型与容器类型</li>
+<li>[x] 指定生成代码模板目录和生成代码目录，生成读表代码时从这些目录读取</li>
+<li>[x] 指定用途（usage）和生成代码模板（template）/生成代码目录之间的关联</li>
+<li>[x] 传入配置文件路径，生成表名到字段的属性列表的映射</li>
+<li>[x] 在不提供json文件时，仅所有字段的属性都设置为初始值</li>
+<li>[x] 在提供json文件时，从json文件中读出字段的属性</li>
+<li>[ ] 提供表名可以获取字段属性列表</li>
+<li>[ ] 提供表名和字段名可以获得到字段的配置信息</li>
+<li>[ ] 可以根据表名和字段名来设置字段的属性</li>
+<li>[x] 传入存储路径，可以将表格的配置属性以json形式写入</li>
+<li>[ ] 指定表名和用途，可以根据生成代码模板来生成读表代码（这里需要提供特殊的语法解析，提供给用户一定的自由度，代码模板需要支持if，for等控制结构）</li>
+<li>[ ] …</li>
 </ul>
 </li>
-<li>ConfigCodeGen：依赖ConfigCodeGenLib的图形化工具，提供功能包括<ol>
+<li>ConfigCodeGen：依赖ConfigCodeGenLib的图形化工具，提供功能包括
+<ol>
 <li>提供配置目录，生成所有表格配置的选取列表</li>
 <li>选取表格后，显示字段的编辑界面</li>
 <li>保存字段属性的编辑结果，生成json配置文件</li>
@@ -282,10 +298,12 @@ marked:
 </ol>
 </li>
 </ol>
-<h3 id="开发记录"><a href="#开发记录" class="headerlink" title="开发记录"></a>开发记录</h3><p>github传送门：<a href="https://github.com/KaLuLas/ConfigCodeGen">https://github.com/KaLuLas/ConfigCodeGen</a></p>
+<h3 id="开发记录"><a class="markdownIt-Anchor" href="#开发记录"></a> 开发记录</h3>
+<p>github传送门：<a href="https://github.com/KaLuLas/ConfigCodeGen">https://github.com/KaLuLas/ConfigCodeGen</a></p>
 <p>配置json文件存放于Solution根目录下，路径先用绝对路径写死在Console的启动参数里面</p>
 <ol>
-<li>ConfigCodeGenLib: .Net Standard Library<ol>
+<li>ConfigCodeGenLib: .Net Standard Library
+<ol>
 <li>Configuration：静态类，用于根据json文件配置工具环境</li>
 <li>ConfigManager：单例模式，用于根据配置文件和json文件生成运行时数据</li>
 <li>CodeGeneration.Generator：代码生成器</li>
@@ -293,7 +311,8 @@ marked:
 </li>
 <li>ConfigCodeGenConsole: 调试Library用的Console类型project</li>
 </ol>
-<h4 id="配置形式说明"><a href="#配置形式说明" class="headerlink" title="配置形式说明"></a>配置形式说明</h4><p>config.json</p>
+<h4 id="配置形式说明"><a class="markdownIt-Anchor" href="#配置形式说明"></a> 配置形式说明</h4>
+<p>config.json</p>
 <pre class="line-numbers language-json" data-language="json"><code class="language-json">&#123;
     &quot;DataValueType&quot;: [&quot;int&quot;, &quot;float&quot;, &quot;boolean&quot;, &quot;string&quot;], &#x2F;&#x2F; 支持的值类型
     &quot;DataCollectionType&quot;: [&quot;none&quot;, &quot;array&quot;, &quot;list&quot;], &#x2F;&#x2F; 支持的容器类型
@@ -312,7 +331,6 @@ marked:
         &#125;
     &#125;
 &#125;</code></pre>
-
 <p>table.json（配置文件对应json）</p>
 <pre class="line-numbers language-json" data-language="json"><code class="language-json">&#123;
     &quot;ConfigName&quot; : &quot;AutoPickupConfig&quot;,
@@ -336,17 +354,17 @@ marked:
         &#x2F;&#x2F; ...
     ]
 &#125;</code></pre>
-
-<h4 id="待办事项"><a href="#待办事项" class="headerlink" title="待办事项"></a>待办事项</h4><ul>
-<li><input checked="" disabled="" type="checkbox"> 当json文件存在时，读取json构建Attributes的属性</li>
-<li><input checked="" disabled="" type="checkbox"> 将日志器独立出来，方便后面添加回调</li>
-<li><input checked="" disabled="" type="checkbox"> 表格的用途（usage）不是必要字段，可以考虑去掉</li>
-<li><input checked="" disabled="" type="checkbox"> 提供自定义字段标记（tag）用于标记主键等</li>
-<li><input checked="" disabled="" type="checkbox"> 根据现成的项目组读表代码写一个伪代码模板（见csharp.txt）</li>
-<li><input disabled="" type="checkbox"> 根据伪代码模板给出终结/非终结符号与产生式</li>
-<li><input disabled="" type="checkbox"> 实现代码模板的词法，语法分析</li>
-<li><input disabled="" type="checkbox"> 实现代码模板中使用的各个功能</li>
-<li><input disabled="" type="checkbox"> 用lua / 自实现语言来结合txt文本进行内容生成？ &lt;- here</li>
+<h4 id="待办事项"><a class="markdownIt-Anchor" href="#待办事项"></a> 待办事项</h4>
+<ul>
+<li>[x] 当json文件存在时，读取json构建Attributes的属性</li>
+<li>[x] 将日志器独立出来，方便后面添加回调</li>
+<li>[x] 表格的用途（usage）不是必要字段，可以考虑去掉</li>
+<li>[x] 提供自定义字段标记（tag）用于标记主键等</li>
+<li>[x] 根据现成的项目组读表代码写一个伪代码模板（见csharp.txt）</li>
+<li>[ ] 根据伪代码模板给出终结/非终结符号与产生式</li>
+<li>[ ] 实现代码模板的词法，语法分析</li>
+<li>[ ] 实现代码模板中使用的各个功能</li>
+<li>[ ] 用lua / 自实现语言来结合txt文本进行内容生成？ &lt;- here</li>
 </ul>
 ]]></content>
       <categories>
@@ -359,9 +377,26 @@ marked:
       </tags>
   </entry>
   <entry>
+    <title>计算机图形学中的四元数</title>
+    <url>/p/d376051877fb/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>计算机图形学</category>
+        <category>坐标变换</category>
+        <category>四元数</category>
+      </categories>
+      <tags>
+        <tag>计算机图形学</tag>
+        <tag>复数</tag>
+        <tag>四元数</tag>
+        <tag>万向节死锁</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>unity中的原生对象与托管对象</title>
     <url>/p/27ad02cebc90/</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/lightgallery.js/1.0.1/css/lightgallery.min.css" /><div class=".article-gallery"><h2 id="序"><a href="#序" class="headerlink" title="序"></a>序</h2><p>最初在工作中接触到引擎原生层相关的问题，是项目实现的延时执行模块，模块提供接口来进行委托的延时调用：</p>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/lightgallery.js/1.0.1/css/lightgallery.min.css" /><div class=".article-gallery"><h2 id="序"><a class="markdownIt-Anchor" href="#序"></a> 序</h2>
+<p>最初在工作中接触到引擎原生层相关的问题，是项目实现的延时执行模块，模块提供接口来进行委托的延时调用：</p>
 <pre class="line-numbers language-c#" data-language="c#"><code class="language-c#">&#x2F;&#x2F; 返回一个token用于后续的CancelDelayCall
 m_DelayExecuteGuidance &#x3D; GameFacade.CurrentGame.DelayCall(8.0f, OnPlayerGuideFinished);
 
@@ -372,21 +407,21 @@ private void OnPlayerGuideFinished()
     Debug.Log(gameObject.name);
     &#x2F;&#x2F; something else...
 &#125;</code></pre>
-
 <p>延时执行模块与协程不同，不会因为gameObject的销毁而取消执行，假设在指定的8s后，组件绑定的gameObject已经销毁，那么试图在访问时就会产生这样的报错：</p>
-<p><a href="/p/27ad02cebc90/image-20211221124140635.png" title="image-20211221124140635" class="gallery-item"><img src="/p/27ad02cebc90/image-20211221124140635.png" alt="image-20211221124140635"></a></p>
+<p><a href="image-20211221124140635.png" title="image-20211221124140635" class="gallery-item"><img src="image-20211221124140635.png" alt="image-20211221124140635" /></a></p>
 <p>可以看到延时模块仍然保留了对MonoBehaviour的引用，但在试图通过property访问gameObejct的时候发生了报错，且提示代码位置为“managed-to-native”，体现了本文的主体：引擎的托管（managed）代码对原生（native）代码的访问，下面我们就集中介绍Unity引擎中的原生对象与托管对象。</p>
 <span id="more"></span>
-
-
-<h2 id="原生对象与托管对象"><a href="#原生对象与托管对象" class="headerlink" title="原生对象与托管对象"></a>原生对象与托管对象</h2><p>Unity作为C++实现的游戏引擎，在运行时大部分的逻辑和内存管理都是在原生层（C++ code）进行，这里就将引擎在原生层创建的对象称为原生对象（native object），基于引擎的游戏逻辑中创建的对象成为托管对象（managed object）。当Unity创建一个Object的时候，存在着核心的原生层面的逻辑，另一部分则是更为常用的托管层面的C#逻辑，下面就先从Unity引擎中的Object说起。</p>
-<hr>
-<h2 id="Understanding-Unity-Engine-Objects"><a href="#Understanding-Unity-Engine-Objects" class="headerlink" title="Understanding Unity Engine Objects"></a>Understanding Unity Engine Objects</h2><blockquote>
+<h2 id="原生对象与托管对象"><a class="markdownIt-Anchor" href="#原生对象与托管对象"></a> 原生对象与托管对象</h2>
+<p>Unity作为C<ins>实现的游戏引擎，在运行时大部分的逻辑和内存管理都是在原生层（C</ins> code）进行，这里就将引擎在原生层创建的对象称为原生对象（native object），基于引擎的游戏逻辑中创建的对象成为托管对象（managed object）。当Unity创建一个Object的时候，存在着核心的原生层面的逻辑，另一部分则是更为常用的托管层面的C#逻辑，下面就先从Unity引擎中的Object说起。</p>
+<hr />
+<h2 id="understanding-unity-engine-objects"><a class="markdownIt-Anchor" href="#understanding-unity-engine-objects"></a> Understanding Unity Engine Objects</h2>
+<blockquote>
 <p>节选翻译自 <a href="https://blog.eyas.sh/2020/10/unity-for-engineers-pt5-object-component/">https://blog.eyas.sh/2020/10/unity-for-engineers-pt5-object-component/</a></p>
 </blockquote>
-<p>Unity引擎运行时使用C++实现，大多数引擎的要素（gameObject以及component等等）都处于C++侧。你也许也知道Unity引擎的API是以C#形式提供的。这些API为你提供了对Unity原生对象的访问，以至于这些对象用起来就像是C#对象一样亲切易懂。</p>
-<p><a href="/p/27ad02cebc90/object-hierarchy.svg" title=" A GameObject, MonoBehaviour, and ScriptableObject all inherit from UnityEngine Object" class="gallery-item"><img src="/p/27ad02cebc90/object-hierarchy.svg" alt=" A GameObject, MonoBehaviour, and ScriptableObject all inherit from UnityEngine Object"></a></p>
-<h3 id="UnityEngine-Object"><a href="#UnityEngine-Object" class="headerlink" title="UnityEngine.Object"></a>UnityEngine.Object</h3><p>在继承链的顶端的是<code>UnityEngine.Object</code>。大多数情况下都提供<code>name</code>字符串，<code>GetInstanceID()</code>接口，以及一系列比较器（equality comparers）。</p>
+<p>Unity引擎运行时使用C<ins>实现，大多数引擎的要素（gameObject以及component等等）都处于C</ins>侧。你也许也知道Unity引擎的API是以C#形式提供的。这些API为你提供了对Unity原生对象的访问，以至于这些对象用起来就像是C#对象一样亲切易懂。</p>
+<p><a href="object-hierarchy.svg" title=" A GameObject, MonoBehaviour, and ScriptableObject all inherit from UnityEngine Object" class="gallery-item"><img src="object-hierarchy.svg" alt=" A GameObject, MonoBehaviour, and ScriptableObject all inherit from UnityEngine Object" /></a></p>
+<h3 id="unityengineobject"><a class="markdownIt-Anchor" href="#unityengineobject"></a> UnityEngine.Object</h3>
+<p>在继承链的顶端的是<code>UnityEngine.Object</code>。大多数情况下都提供<code>name</code>字符串，<code>GetInstanceID()</code>接口，以及一系列比较器（equality comparers）。</p>
 <p>这个类同时提供了静态方法 <code>static void Destroy(Object obj)</code> 来销毁一个 <code>UnityEngine.Object</code> 以及它的一切子类。当一个Object被销毁时，这个对象的原生层部分已被从内存中释放，而相对小的托管层部分将会在它没有被引用时被垃圾回收。</p>
 <p>因为你在托管层对<code>UnityEngine.Object</code>的引用可能指向一个已经被销毁的原生层对象，所以<code>UnityEngine.Object</code>重写了C#的<code>operator==</code>以及<code>operator!=</code>让一个已被销毁的Object能够表现为null。所以对已在原生层被销毁的Object进行null判定会返回true，或者直接引发<code>NullRefrenceException</code>，来告诉你该对象已经被销毁。</p>
 <p>可以在C#侧看到Object实现中，若与null进行比较，会调用<code>IsNativeObjectAlive</code>进行判定。</p>
@@ -401,10 +436,8 @@ private static bool CompareBaseObjects(Object lhs, Object rhs)
     return !Object.IsNativeObjectAlive(lhs);
   return flag1 ? !Object.IsNativeObjectAlive(rhs) : lhs.m_InstanceID &#x3D;&#x3D; rhs.m_InstanceID;
 &#125;</code></pre>
-
-
-
-<h4 id="进行一下回顾（非原文内容）"><a href="#进行一下回顾（非原文内容）" class="headerlink" title="进行一下回顾（非原文内容）"></a>进行一下回顾（非原文内容）</h4><p>在文章开始时我们给出了例子<code>GameFacade.CurrentGame.DelayCall</code>，现在我们在延时执行的代码中加上这些判断语句，并记录关键日志：</p>
+<h4 id="进行一下回顾非原文内容"><a class="markdownIt-Anchor" href="#进行一下回顾非原文内容"></a> 进行一下回顾（非原文内容）</h4>
+<p>在文章开始时我们给出了例子<code>GameFacade.CurrentGame.DelayCall</code>，现在我们在延时执行的代码中加上这些判断语句，并记录关键日志：</p>
 <pre class="line-numbers language-c#" data-language="c#"><code class="language-c#">private void OnPlayerGuideFinished()
 &#123;
     Debugger.Log(&quot;[UINewAutoPickUpSettingController.OnPlayerGuideFinished]&quot;);
@@ -431,23 +464,24 @@ private static bool CompareBaseObjects(Object lhs, Object rhs)
 
     m_View.GuideCoverBtn.gameObject.SetActive(false);
 &#125;</code></pre>
-
 <p>运行测试时，我们会发现这些尽管托管层仍持有这些MonoBehaviour的引用，但这些引用已经全部被判定为null，这是由于我们销毁gameObject时，原生层对应的对象已经被从内存中销毁，对应内内存空间被释放，所以尽管托管层的<code>Object</code>对象还没有被垃圾回收，对象仍然可以被访问，但对自身的null判定会全部为true。</p>
 <p>同时我们也要注意到null判定为true是因为<code>operator==</code>的重写，但是仍然指向一个托管层的<code>Object</code>对象，这个对象的成员（如m_View，是一个纯C#侧对象）仍然是可以被访问的，只在最终访问到原生层对象，或者试图获取原生层对象时报错。</p>
-<p><a href="/p/27ad02cebc90/image-20211221143715637.png" title="image-20211221143715637" class="gallery-item"><img src="/p/27ad02cebc90/image-20211221143715637.png" alt="image-20211221143715637"></a></p>
+<p><a href="image-20211221143715637.png" title="image-20211221143715637" class="gallery-item"><img src="image-20211221143715637.png" alt="image-20211221143715637" /></a></p>
 <p>上图为运行日志结果，报错的为<code>UnityEngine.Component</code>中的<code>getter</code>方法：</p>
 <pre class="line-numbers language-c#" data-language="c#"><code class="language-c#">&#x2F;&#x2F;&#x2F; &lt;summary&gt;
 &#x2F;&#x2F;&#x2F;   &lt;para&gt;The game object this component is attached to. A component is always attached to a game object.&lt;&#x2F;para&gt;
 &#x2F;&#x2F;&#x2F; &lt;&#x2F;summary&gt;
 &#x2F;&#x2F;&#x2F; &lt;footer&gt;&lt;a href&#x3D;&quot;https:&#x2F;&#x2F;docs.unity3d.com&#x2F;2018.4&#x2F;Documentation&#x2F;ScriptReference&#x2F;30_search.html?q&#x3D;Component-gameObject&quot;&gt;&#96;Component.gameObject&#96; on docs.unity3d.com&lt;&#x2F;a&gt;&lt;&#x2F;footer&gt;
 public extern GameObject gameObject &#123; [FreeFunction(&quot;GetGameObject&quot;, HasExplicitThis &#x3D; true), MethodImpl(MethodImplOptions.InternalCall)] get; &#125;</code></pre>
-
 <p>可以看到这里就是在试图获取原生层gameObject时抛出了错误</p>
-<h3 id="GameObject-amp-Component"><a href="#GameObject-amp-Component" class="headerlink" title="GameObject &amp; Component"></a>GameObject &amp; Component</h3><h4 id="GameObject"><a href="#GameObject" class="headerlink" title="GameObject"></a>GameObject</h4><blockquote>
+<h3 id="gameobject-component"><a class="markdownIt-Anchor" href="#gameobject-component"></a> GameObject &amp; Component</h3>
+<h4 id="gameobject"><a class="markdownIt-Anchor" href="#gameobject"></a> GameObject</h4>
+<blockquote>
 <p>此部分内容进行省略，可跳转到原文查看完整内容</p>
 </blockquote>
 <p><code>GameObject</code>从<code>Object</code>继承而来，用以代表你场景中的一切对象。一个GameObject持有一个Component的列表，且至少拥有一个Component，即Transform，用以描述GameObject的空间信息，如position和rotation等。</p>
-<h4 id="Component"><a href="#Component" class="headerlink" title="Component"></a>Component</h4><blockquote>
+<h4 id="component"><a class="markdownIt-Anchor" href="#component"></a> Component</h4>
+<blockquote>
 <p>此部分内容进行省略，可跳转到原文查看完整内容</p>
 <p>Unity通过Component对象的组合来定义gameObject的行为表现，这是被游戏引擎（游戏开发者）成为Entity Component System的核心描述/信条… 容易混淆的是Unity也将他们推出的次世代高性能游戏编程范式（paradigm）成为ECS，即不仅引擎逻辑，游戏逻辑也使用ECS来实现，从而成为一种数据驱动的设计。</p>
 </blockquote>
@@ -459,19 +493,28 @@ public extern GameObject gameObject &#123; [FreeFunction(&quot;GetGameObject&quo
 <p>Component最重要的功能由Unity Messages驱动（也称为Unity Event Functions），这些都是引擎在特定时间下触发的callback方法，详情可以参考官方文档。</p>
 <p>若你需要在特定时机执行一些逻辑，添加这些message的同名方法即可，引擎运行时（runtime）会使用反射来进行方法调用，这就是为什么你在这些方法上看不到<code>override</code>关键字。每个Component类型的<code>Update</code>，<code>LateUpdate</code>，<code>FixedUpdate</code>这些消息都只会被反射获取一次，所以不用担心反射在每个游戏帧都被执行（有关内容可以参阅 <a href="https://blog.unity.com/technology/1k-update-calls%EF%BC%89%E3%80%82">https://blog.unity.com/technology/1k-update-calls）。</a></p>
 <p><code>Behaviour</code>是可以被设置enabled / disabled 状态的Component，在disable的状态下，一些事件方法将不会执行。而<code>MonoBehaviour</code>是可以使用协程（受Unity Engine管理）的Behaviour。</p>
-<h3 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h3><ol>
+<h3 id="要点"><a class="markdownIt-Anchor" href="#要点"></a> 要点</h3>
+<ol>
 <li>Unity object在原生层销毁后表现为null，<code>== null</code>判定可能做了一些你料想之外的工作</li>
 <li>因此，其他的null运算符（如?.）可能不起作用</li>
 <li>Unity Messages 可以是私有的！</li>
 <li>如果没有必要的话，不要声明<code>Update</code>这样的方法用于override等，这会让引擎多调用一些额外的方法</li>
 <li>对无用的Object或者Component进行disable是限制游戏逻辑或节省CPU开销的一种方式，但这些对象仍然会占用内存</li>
 </ol>
-<hr>
-<h2 id="原生对象与托管对象的引擎管理"><a href="#原生对象与托管对象的引擎管理" class="headerlink" title="原生对象与托管对象的引擎管理"></a>原生对象与托管对象的引擎管理</h2><p>WIP</p>
-<h2 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h2><ol>
-<li><a href="https://blog.eyas.sh/2020/10/unity-for-engineers-pt5-object-component/" title="" target="">Understanding Unity Engine Objects</a></li>
-<li><a href="https://blog.unity.com/technology/1k-update-calls" title="文章1中的推荐阅读" target="">unity blog: 10000 Update() calls</a></li>
-<li><a href="https://developer.unity.cn/projects/6152e4fbedbc2a0020584027" title="" target="">揭秘Unity的黑盒世界，原生对象和托管对象浅谈</a></li>
+<hr />
+<h2 id="原生对象与托管对象的引擎管理"><a class="markdownIt-Anchor" href="#原生对象与托管对象的引擎管理"></a> 原生对象与托管对象的引擎管理</h2>
+<p>WIP</p>
+<h2 id="参考文章"><a class="markdownIt-Anchor" href="#参考文章"></a> 参考文章</h2>
+<ol>
+<li>
+<a href="https://blog.eyas.sh/2020/10/unity-for-engineers-pt5-object-component/" title="" target="">Understanding Unity Engine Objects</a>
+</li>
+<li>
+<a href="https://blog.unity.com/technology/1k-update-calls" title="文章1中的推荐阅读" target="">unity blog: 10000 Update() calls</a>
+</li>
+<li>
+<a href="https://developer.unity.cn/projects/6152e4fbedbc2a0020584027" title="" target="">揭秘Unity的黑盒世界，原生对象和托管对象浅谈</a>
+</li>
 </ol>
 </div><script src="https://cdn.jsdelivr.net/lightgallery.js/1.0.1/js/lightgallery.min.js"></script><script src="/js/lg-thumbnail.min.js"></script><script src="/js/lg-zoom.min.js"></script><script src="/js/lg-fullscreen.min.js"></script><script>if (typeof lightGallery !== 'undefined') {
         var options = {
