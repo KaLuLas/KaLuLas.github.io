@@ -470,7 +470,22 @@ class="math inline">\(\vec{v_\perp^\prime}\)</span>：</p>
 \]</span></p>
 <h3 id="vecv的旋转">2.4 <span
 class="math inline">\(\vec{v}\)</span>的旋转</h3>
-<p>to be continued...</p>
+<p>根据上述公式可以得到以下推导，得到3D旋转公式，也称Rodrigues’ Rotation
+Formula：</p>
+<p><span class="math display">\[
+\begin{equation}\begin{aligned}\vec{v^\prime}&amp;=\vec{v^\prime_\parallel}+\vec{v_\perp^\prime}\\&amp;=\vec{v_\parallel}+\cos{\theta}\vec{v_\perp}+\sin{\theta}(\vec{u}\times\vec{v_\perp})\\&amp;=(\vec{u}\cdot\vec{v})\vec{u}+\cos{\theta}(\vec{v}-(\vec{u}\cdot\vec{v})\vec{u})+\sin{\theta}(\vec{u}\times\vec{v})\\&amp;=\cos{\theta}\vec{v}+(1-\cos{\theta})(\vec{u}\cdot\vec{v})\vec{u}+\sin{\theta}(\vec{u}\times\vec{v})\end{aligned}\end{equation}
+\]</span></p>
+<p>其中第二步包含以下推导（叉乘遵守分配律）</p>
+<p><span class="math display">\[
+\begin{equation}\begin{aligned}\vec{u}\times\vec{v_\perp}&amp;=\vec{u}\times(\vec{v}-\vec{v_\parallel})\\&amp;=\vec{u}\times\vec{v}-\vec{u}\times\vec{v_\parallel}（\vec{u}平行于\vec{v_\parallel}，结果为0）\\&amp;=\vec{u}\times\vec{v}\end{aligned}\end{equation}
+\]</span></p>
+<h2 id="四元数">四元数</h2>
+<p>所有四元数<span
+class="math inline">\(q\in\mathbb{H}\)</span>都可以表现成下述形式</p>
+<p><span class="math display">\[
+\begin{equation}\begin{aligned}q=a+bi+cj+dk(a,b,c,d\in\mathbb{R})\end{aligned}\end{equation}
+\]</span></p>
+<p>to be continued... 四元数之间的乘法</p>
 <h2 id="万向节死锁">万向节死锁</h2>
 <p>包含了万向节死锁的部分问题，以Unity为例的回答</p>
 <p><a
