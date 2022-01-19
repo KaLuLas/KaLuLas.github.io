@@ -485,7 +485,46 @@ class="math inline">\(q\in\mathbb{H}\)</span>都可以表现成下述形式</p>
 <p><span class="math display">\[
 \begin{equation}\begin{aligned}q=a+bi+cj+dk(a,b,c,d\in\mathbb{R})\end{aligned}\end{equation}
 \]</span></p>
-<p>to be continued... 四元数之间的乘法</p>
+<p>其中有</p>
+<p><span class="math display">\[
+\begin{equation}i^2=j^2=k^2=ijk=-1\end{equation}
+\]</span></p>
+<h3 id="标量乘法-四元数乘法">3.1 标量乘法 &amp; 四元数乘法</h3>
+<p>四元数与标量的乘法遵守交换律，但四元数之间的乘法比较特殊不遵守交换律，有左乘与右乘的区别，一般情况下左乘结果不等于右乘结果。举例对<span
+class="math inline">\(q_1=a+bi+cj+dk\)</span>与<span
+class="math inline">\(q_2=e+fi+gj+hk\)</span>之间的乘法有：</p>
+<p><span class="math display">\[
+\begin{equation}q_1q_2=\begin{bmatrix}a&amp;-b&amp;-c&amp;-d\\b&amp;a&amp;-d&amp;c\\c&amp;d&amp;a&amp;-b\\d&amp;-c&amp;b&amp;a\end{bmatrix}\begin{bmatrix}e\\f\\g\\h\end{bmatrix}\end{equation}
+\]</span></p>
+<p>进行<span class="math inline">\(q_1\)</span>右乘<span
+class="math inline">\(q_2\)</span>有以下</p>
+<p><span class="math display">\[
+\begin{equation}q_2q_1=\begin{bmatrix}a&amp;-b&amp;-c&amp;-d\\b&amp;a&amp;d&amp;-c\\c&amp;-d&amp;a&amp;b\\d&amp;c&amp;-b&amp;a\end{bmatrix}\begin{bmatrix}e\\f\\g\\h\end{bmatrix}\end{equation}
+\]</span></p>
+<h3 id="graßmann积">3.1.6 Graßmann积</h3>
+<p>对以上<span class="math inline">\(q_1\)</span>以及<span
+class="math inline">\(q_2\)</span>有两者的乘积</p>
+<p><span class="math display">\[
+\begin{equation}\begin{aligned}q_1q_2=&amp;(ae-(bf+cg+dh))+\\&amp;(be+af+ch-dg)i+\\&amp;(ce+ag+df-bh)j+\\&amp;(de+ah+bg-cf)k\end{aligned}\end{equation}
+\]</span></p>
+<p>若给出以<span
+class="math inline">\(\vec{i}、\vec{j}、\vec{k}\)</span>为基的向量<span
+class="math inline">\(\vec{v}=\begin{bmatrix}b\\c\\d\end{bmatrix}\)</span>以及<span
+class="math inline">\(\vec{u}=\begin{bmatrix}f\\g\\h\end{bmatrix}\)</span>，有以下</p>
+<p><span class="math display">\[
+\begin{equation}\begin{aligned}\vec{v}\cdot\vec{u}&amp;=bf+cg+dh\\\vec{v}\times\vec{u}&amp;=\left|\begin{matrix}\vec{i}&amp;\vec{j}&amp;\vec{k}\\b&amp;c&amp;d\\f&amp;g&amp;h\end{matrix}\right|\\&amp;=(ch-dg)\vec{i}-(bh-df)\vec{j}+(bg-cf)\vec{k}\end{aligned}\end{equation}
+\]</span></p>
+<p>最后可以得到Graßmann积结果，有对任意四元数<span
+class="math inline">\(q_1=\begin{bmatrix}s,\vec{v}\end{bmatrix},
+q_2=\begin{bmatrix}t,\vec{u}\end{bmatrix}\)</span>可以得到结果：</p>
+<p><span class="math display">\[
+\begin{equation}q_1q_2=\begin{bmatrix}st-\vec{v}\cdot\vec{u},
+s\vec{u}+t\vec{v}+\vec{v}\times\vec{u}\end{bmatrix}\end{equation}
+\]</span></p>
+<p>需要留意这里的到的结果是一个四元数，前者是标量，后者是一个以<span
+class="math inline">\(\vec{i}、\vec{j}、\vec{k}\)</span>为基的三维向量</p>
+<h3 id="纯四元数">3.1.7 纯四元数</h3>
+<p>to be continued...</p>
 <h2 id="万向节死锁">万向节死锁</h2>
 <p>包含了万向节死锁的部分问题，以Unity为例的回答</p>
 <p><a
