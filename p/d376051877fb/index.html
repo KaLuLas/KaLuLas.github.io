@@ -29,7 +29,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://www.threegates.net/p/d376051877fb/complex-plane.png">
 <meta property="article:published_time" content="2022-01-15T10:21:14.000Z">
-<meta property="article:modified_time" content="2022-02-07T07:51:53.787Z">
+<meta property="article:modified_time" content="2022-02-07T10:19:15.146Z">
 <meta property="article:author" content="Edward Chen">
 <meta property="article:tag" content="计算机图形学">
 <meta property="article:tag" content="复数">
@@ -125,7 +125,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9B%9B%E5%85%83%E6%95%B0%E4%B8%8E%E6%AC%A7%E6%8B%89%E8%A7%92"><span class="nav-number">1.</span> <span class="nav-text">四元数与欧拉角</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%8D%E6%95%B0"><span class="nav-number">1.1.</span> <span class="nav-text">复数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%8D%E6%95%B0%E7%9B%B8%E4%B9%98%E4%B8%8E2d%E6%97%8B%E8%BD%AC"><span class="nav-number">1.1.1.</span> <span class="nav-text">1.3 复数相乘与2D旋转</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%97%8B%E8%BD%AC%E7%9A%84%E5%A4%8D%E5%90%88"><span class="nav-number">1.1.2.</span> <span class="nav-text">1.4 旋转的复合</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E7%BB%B4%E7%A9%BA%E9%97%B4%E4%B8%AD%E7%9A%84%E6%97%8B%E8%BD%AC"><span class="nav-number">1.2.</span> <span class="nav-text">2 三维空间中的旋转</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%97%8B%E8%BD%AC%E7%9A%84%E5%88%86%E8%A7%A3"><span class="nav-number">1.2.1.</span> <span class="nav-text">2.1 旋转的分解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9E%82%E7%9B%B4%E5%88%86%E9%87%8F%E7%9A%84%E6%97%8B%E8%BD%AC"><span class="nav-number">1.2.2.</span> <span class="nav-text">2.3 垂直分量的旋转</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#vecv%E7%9A%84%E6%97%8B%E8%BD%AC"><span class="nav-number">1.2.3.</span> <span class="nav-text">2.4 \(\vec{v}\)的旋转</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%9B%E5%85%83%E6%95%B0"><span class="nav-number">1.3.</span> <span class="nav-text">四元数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%87%E9%87%8F%E4%B9%98%E6%B3%95-%E5%9B%9B%E5%85%83%E6%95%B0%E4%B9%98%E6%B3%95"><span class="nav-number">1.3.1.</span> <span class="nav-text">3.1 标量乘法 &amp; 四元数乘法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#gra%C3%9Fmann%E7%A7%AF"><span class="nav-number">1.3.2.</span> <span class="nav-text">3.1.6 Graßmann积</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BA%AF%E5%9B%9B%E5%85%83%E6%95%B0"><span class="nav-number">1.3.3.</span> <span class="nav-text">3.1.7 纯四元数</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%87%E5%90%91%E8%8A%82%E6%AD%BB%E9%94%81"><span class="nav-number">1.4.</span> <span class="nav-text">万向节死锁</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9B%9B%E5%85%83%E6%95%B0%E4%B8%8E%E6%AC%A7%E6%8B%89%E8%A7%92"><span class="nav-number">1.</span> <span class="nav-text">四元数与欧拉角</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%8D%E6%95%B0"><span class="nav-number">1.1.</span> <span class="nav-text">复数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%8D%E6%95%B0%E7%9B%B8%E4%B9%98%E4%B8%8E2d%E6%97%8B%E8%BD%AC"><span class="nav-number">1.1.1.</span> <span class="nav-text">1.3 复数相乘与2D旋转</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%97%8B%E8%BD%AC%E7%9A%84%E5%A4%8D%E5%90%88"><span class="nav-number">1.1.2.</span> <span class="nav-text">1.4 旋转的复合</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E7%BB%B4%E7%A9%BA%E9%97%B4%E4%B8%AD%E7%9A%84%E6%97%8B%E8%BD%AC"><span class="nav-number">1.2.</span> <span class="nav-text">2 三维空间中的旋转</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%97%8B%E8%BD%AC%E7%9A%84%E5%88%86%E8%A7%A3"><span class="nav-number">1.2.1.</span> <span class="nav-text">2.1 旋转的分解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9E%82%E7%9B%B4%E5%88%86%E9%87%8F%E7%9A%84%E6%97%8B%E8%BD%AC"><span class="nav-number">1.2.2.</span> <span class="nav-text">2.3 垂直分量的旋转</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#vecv%E7%9A%84%E6%97%8B%E8%BD%AC"><span class="nav-number">1.2.3.</span> <span class="nav-text">2.4 \(\vec{v}\)的旋转</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%9B%E5%85%83%E6%95%B0"><span class="nav-number">1.3.</span> <span class="nav-text">四元数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%87%E9%87%8F%E4%B9%98%E6%B3%95-%E5%9B%9B%E5%85%83%E6%95%B0%E4%B9%98%E6%B3%95"><span class="nav-number">1.3.1.</span> <span class="nav-text">3.1 标量乘法 &amp; 四元数乘法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#gra%C3%9Fmann%E7%A7%AF"><span class="nav-number">1.3.2.</span> <span class="nav-text">3.1.6 Graßmann积</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BA%AF%E5%9B%9B%E5%85%83%E6%95%B0"><span class="nav-number">1.3.3.</span> <span class="nav-text">3.1.7 纯四元数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%80%86%E4%B8%8E%E5%85%B1%E8%BD%AD"><span class="nav-number">1.3.4.</span> <span class="nav-text">3.1.8 逆与共轭</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%9B%E5%85%83%E6%95%B0%E4%B8%8E3d%E6%97%8B%E8%BD%AC"><span class="nav-number">1.4.</span> <span class="nav-text">3.2 四元数与3D旋转</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#d%E6%97%8B%E8%BD%AC%E7%9A%84%E7%9F%A9%E9%98%B5%E5%BD%A2%E5%BC%8F"><span class="nav-number">1.5.</span> <span class="nav-text">3.3 3D旋转的矩阵形式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%87%E5%90%91%E8%8A%82%E6%AD%BB%E9%94%81"><span class="nav-number">1.6.</span> <span class="nav-text">万向节死锁</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -236,7 +236,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2022-02-07 15:51:53" itemprop="dateModified" datetime="2022-02-07T15:51:53+08:00">2022-02-07</time>
+        <time title="修改时间：2022-02-07 18:19:15" itemprop="dateModified" datetime="2022-02-07T18:19:15+08:00">2022-02-07</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -270,14 +270,14 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>4.4k</span>
+      <span>6.1k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>4 分钟</span>
+      <span>6 分钟</span>
     </span>
 </div>
 
@@ -328,7 +328,7 @@ class="math inline">\(\vec{v}=\vec{v_\parallel}+\vec{v_\perp}\)</span>
 ，分别进行旋转后再相加就能得到旋转后的结果。</p>
 <p>根据正交投影公式，可以得出</p>
 <p><span class="math display">\[
-\begin{aligned}v_\parallel&amp;=proj_{\vec{u}}(\vec{v})\\&amp;=\frac{\vec{u}\cdot\vec{v}}{\vec{u}\cdot\vec{u}}\vec{u}\\&amp;=(\vec{u}\cdot\vec{v})\vec{u}\end{aligned}
+\begin{aligned}\vec{v_\parallel}&amp;=proj_{\vec{u}}(\vec{v})\\&amp;=\frac{\vec{u}\cdot\vec{v}}{\vec{u}\cdot\vec{u}}\vec{u}\\&amp;=(\vec{u}\cdot\vec{v})\vec{u}\end{aligned}
 \]</span></p>
 <p>又由于<span
 class="math inline">\(\vec{v}=\vec{v_\|}+\vec{v_\perp}\)</span>，可以得到垂直于转轴方向有</p>
@@ -354,8 +354,8 @@ class="math inline">\(\vec{v_\perp^\prime}\)</span>：</p>
 \]</span></p>
 <h3 id="vecv的旋转">2.4 <span
 class="math inline">\(\vec{v}\)</span>的旋转</h3>
-<p>根据上述公式可以得到以下推导，得到3D旋转公式，也称Rodrigues’ Rotation
-Formula：</p>
+<p>根据上述公式可以得到以下推导，得到3D旋转公式，也称<strong><em>Rodrigues’
+Rotation Formula</em></strong>：</p>
 <p><span class="math display">\[
 \begin{equation}\begin{aligned}\vec{v^\prime}&amp;=\vec{v^\prime_\parallel}+\vec{v_\perp^\prime}\\&amp;=\vec{v_\parallel}+\cos{\theta}\vec{v_\perp}+\sin{\theta}(\vec{u}\times\vec{v_\perp})\\&amp;=(\vec{u}\cdot\vec{v})\vec{u}+\cos{\theta}(\vec{v}-(\vec{u}\cdot\vec{v})\vec{u})+\sin{\theta}(\vec{u}\times\vec{v})\\&amp;=\cos{\theta}\vec{v}+(1-\cos{\theta})(\vec{u}\cdot\vec{v})\vec{u}+\sin{\theta}(\vec{u}\times\vec{v})\end{aligned}\end{equation}
 \]</span></p>
@@ -408,6 +408,52 @@ s\vec{u}+t\vec{v}+\vec{v}\times\vec{u}\end{bmatrix}\end{equation}
 <p>需要留意这里的到的结果是一个四元数，前者是标量，后者是一个以<span
 class="math inline">\(\vec{i}、\vec{j}、\vec{k}\)</span>为基的三维向量</p>
 <h3 id="纯四元数">3.1.7 纯四元数</h3>
+<p>纯四元数是仅有虚部的四元数，因为纯四元数仅由虚部的3D向量决定，所以可以将任意的3D向量转换为纯四元数。对3D向量<span
+class="math inline">\(\vec{v}\)</span>，有对应的纯四元数：</p>
+<p><span class="math display">\[
+\begin{equation}v=\begin{bmatrix}0, \vec{v}\end{bmatrix}\end{equation}
+\]</span></p>
+<p>可以思考一下对于纯四元数来说Graßmann积（14）会得到什么结果</p>
+<h3 id="逆与共轭">3.1.8 逆与共轭</h3>
+<p>对四元数<span class="math inline">\(q\)</span>，它的逆为<span
+class="math inline">\(q^{-1}\)</span>，相乘积为1，这里注意复习下四元数不遵守交换律</p>
+<p>同样对四元数<span class="math inline">\(q = a+bi+cj+dk\)</span>
+有共轭为 <span class="math inline">\(q^* =
+a-bi-cj-dk\)</span>，四元数<span
+class="math inline">\(q\)</span>与共轭<span
+class="math inline">\(q^*\)</span>相乘得到结果为四元数模长的平方<span
+class="math inline">\({\|q\|}^2\)</span>，同时这个特殊的运算是遵守交换律的</p>
+<p>最后，根据逆的定义可以推导得到一种寻找四元数的逆的方式，即：</p>
+<h2 id="四元数与3d旋转">3.2 四元数与3D旋转</h2>
+<p>接下来的内容就是将先前推导过的3D旋转公式（14），用<strong>四元数的计算</strong>和<strong>纯四元数</strong>的方式进行表达，这里开始搬运的内容会减少，请主要以阅读原pdf为主。</p>
+<p>对旋转向量<span
+class="math inline">\(\vec{v}\)</span>在垂直方向上的分量旋转<span
+class="math inline">\(\theta\)</span>后的结果<span
+class="math inline">\(\vec{v_\perp^\prime}\)</span>，替换为<strong>纯四元数</strong>的形式有：</p>
+<p><span class="math display">\[
+\begin{equation}\begin{aligned}v_\perp^\prime&amp;=\cos{\theta}v_\perp+\sin{\theta}(uv_\perp)\\&amp;=(\cos{\theta}+\sin{\theta}u)v_\perp\\&amp;=qv_\perp\\q&amp;=\begin{bmatrix}\cos{\theta},\sin{\theta}\vec{u}\end{bmatrix}\end{aligned}\end{equation}
+\]</span></p>
+<p>这里的<span
+class="math inline">\(q\)</span>是一个单位四元数，根据（16）可以得到<span
+class="math inline">\(q^{-1}=q^\star\)</span></p>
+<p>对平行于旋转轴的<span
+class="math inline">\(\vec{v_\parallel}\)</span>，旋转后的保持不变，四元数表达形式：<span
+class="math inline">\(v_\parallel^\prime=v_\parallel\)</span></p>
+<p><span class="math display">\[
+\begin{equation}\begin{aligned}v^\prime&amp;=v_\parallel^\prime+v_\perp^\prime\\&amp;=v_\parallel+qv_\perp\\&amp;=1\cdot{v_\parallel}+qv_\perp\\&amp;=pp^{-1}v_\parallel+ppv_\perp（令p^2=q,p=[cos(\frac{1}{2}\theta),sin(\frac{1}{2}\theta)\vec{u})]）\\&amp;=p{v_\parallel}p^*+p{v_\perp}p^*\\&amp;=p(v_\parallel+v_\perp)p^*\\&amp;=pvp^*\end{aligned}\end{equation}
+\]</span></p>
+<p>其中第四步涉及到一个引理证明，第五涉及到两个引理证明，这里就不进行搬运了。</p>
+<p>最后我们可以得到四元数型，一般情况的3D旋转公式，对任意向量<span
+class="math inline">\(\vec{v}\)</span>沿以单位向量定义的旋转轴<span
+class="math inline">\(\vec{u}\)</span>旋转<span
+class="math inline">\(\theta\)</span>度后得到的<span
+class="math inline">\(\vec{v^\prime}\)</span>可以通过四元数乘法得到，令<span
+class="math inline">\(v=\begin{bmatrix}0,\vec{v}\end{bmatrix},
+q=\begin{bmatrix}\cos({\frac{1}{2}\theta}),\sin({\frac{1}{2}\theta})\vec{u}\end{bmatrix}\)</span>，有</p>
+<p><span class="math display">\[
+\begin{equation}v^\prime=qvq^*=qvq^{-1}\end{equation}
+\]</span></p>
+<h2 id="d旋转的矩阵形式">3.3 3D旋转的矩阵形式</h2>
 <p>to be continued...</p>
 <h2 id="万向节死锁">万向节死锁</h2>
 <p>包含了万向节死锁的部分问题，以Unity为例的回答</p>
