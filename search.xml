@@ -573,7 +573,28 @@ q=\begin{bmatrix}\cos({\frac{1}{2}\theta}),\sin({\frac{1}{2}\theta})\vec{u}\end{
 \begin{equation}v^\prime=qvq^*=qvq^{-1}\end{equation}
 \]</span></p>
 <h2 id="d旋转的矩阵形式">3.3 3D旋转的矩阵形式</h2>
-<p>to be continued...</p>
+<p>对左乘一个四元数<span
+class="math inline">\(q=a+bi+cj+dk\)</span>等同于下面这个矩阵</p>
+<p><span class="math display">\[
+\begin{equation}L(q)=\begin{bmatrix}a&amp;-b&amp;-c&amp;-d\\b&amp;a&amp;-d&amp;c\\c&amp;d&amp;a&amp;-b\\d&amp;-c&amp;b&amp;a\\\end{bmatrix}\end{equation}
+\]</span></p>
+<p>同样的，右乘q等同于这个矩阵</p>
+<p><span class="math display">\[
+\begin{equation}R(q)=\begin{bmatrix}a&amp;-b&amp;-c&amp;-d\\b&amp;a&amp;d&amp;-c\\c&amp;-d&amp;a&amp;b\\d&amp;c&amp;-b&amp;a\\\end{bmatrix}\end{equation}
+\]</span></p>
+<p>对先前的<span
+class="math inline">\(q=\begin{bmatrix}\cos({\frac{1}{2}\theta}),\sin({\frac{1}{2}\theta})\vec{u}\end{bmatrix}\)</span>，可以转换成<span
+class="math inline">\(a=\cos(\frac{1}{2}\theta)u_x,
+b=\sin(\frac{1}{2}\theta)u_y,d=\sin(\frac{1}{2}\theta)u_z,
+q=a+bi+cj+dk\)</span>，我们就能得到</p>
+<p><span class="math display">\[
+\begin{equation}qvq^*=\begin{bmatrix}1&amp;0&amp;0&amp;0\\0&amp;1-c^2-2d^2&amp;2bc-2ad&amp;2ac+abd\\0&amp;2bx+2ad&amp;1-2b^2-2d^2&amp;2cd-2ab\\0&amp;2bd-2ac&amp;2ab+2cd&amp;1-2b^2-2c^2\end{bmatrix}v\end{equation}
+\]</span></p>
+<p>由于我们直到<span
+class="math inline">\(v=\begin{bmatrix}0,\vec{v}\end{bmatrix}\)</span>，所以上述矩阵的最外圈不会进行任何变换，可以将它压缩成3x3的矩阵，3D旋转的矩阵形式不如四元数形式简单，且占用更多空间，但是预计算好的矩阵对于大批量的变换是更有效率的。</p>
+<p><span class="math display">\[
+\begin{equation}\vec{v^\prime}=\begin{bmatrix}1-c^2-2d^2&amp;2bc-2ad&amp;2ac+abd\\2bx+2ad&amp;1-2b^2-2d^2&amp;2cd-2ab\\2bd-2ac&amp;2ab+2cd&amp;1-2b^2-2c^2\end{bmatrix}\vec{v}\end{equation}
+\]</span></p>
 <h2 id="万向节死锁">万向节死锁</h2>
 <p>包含了万向节死锁的部分问题，以Unity为例的回答</p>
 <p><a
