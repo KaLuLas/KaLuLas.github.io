@@ -481,7 +481,7 @@ Rotation Formula</em></strong>：</p>
 \]</span></p>
 <h2 id="四元数">四元数</h2>
 <p>所有四元数<span
-class="math inline">\(q\in\mathbb{H}\)</span>都可以表现成下述形式</p>
+class="math inline">\(q\in\mathbb{H}\)</span>都可以表现成下述形式，有时四元数也写作w，x，y，z的形式，w是常数项，x，y，z分别是i，j，k维度上的系数（记住w是常数项就行）</p>
 <p><span class="math display">\[
 \begin{equation}\begin{aligned}q=a+bi+cj+dk(a,b,c,d\in\mathbb{R})\end{aligned}\end{equation}
 \]</span></p>
@@ -584,17 +584,25 @@ class="math inline">\(q=a+bi+cj+dk\)</span>等同于下面这个矩阵</p>
 \]</span></p>
 <p>对先前的<span
 class="math inline">\(q=\begin{bmatrix}\cos({\frac{1}{2}\theta}),\sin({\frac{1}{2}\theta})\vec{u}\end{bmatrix}\)</span>，可以转换成<span
-class="math inline">\(a=\cos(\frac{1}{2}\theta)u_x,
-b=\sin(\frac{1}{2}\theta)u_y,d=\sin(\frac{1}{2}\theta)u_z,
+class="math inline">\(a=\cos(\frac{1}{2}\theta),
+b=\sin(\frac{1}{2}\theta)u_x,c=\sin(\frac{1}{2}\theta)u_y,d=\sin(\frac{1}{2}\theta)u_z,
 q=a+bi+cj+dk\)</span>，我们就能得到</p>
 <p><span class="math display">\[
 \begin{equation}qvq^*=\begin{bmatrix}1&amp;0&amp;0&amp;0\\0&amp;1-c^2-2d^2&amp;2bc-2ad&amp;2ac+abd\\0&amp;2bx+2ad&amp;1-2b^2-2d^2&amp;2cd-2ab\\0&amp;2bd-2ac&amp;2ab+2cd&amp;1-2b^2-2c^2\end{bmatrix}v\end{equation}
 \]</span></p>
-<p>由于我们直到<span
+<p>注意了，这里的<span
+class="math inline">\(v\)</span>是纯四元数，等式左侧也是四元数的形式下的3D旋转</p>
+<p>由于我们知道<span
 class="math inline">\(v=\begin{bmatrix}0,\vec{v}\end{bmatrix}\)</span>，所以上述矩阵的最外圈不会进行任何变换，可以将它压缩成3x3的矩阵，3D旋转的矩阵形式不如四元数形式简单，且占用更多空间，但是预计算好的矩阵对于大批量的变换是更有效率的。</p>
 <p><span class="math display">\[
 \begin{equation}\vec{v^\prime}=\begin{bmatrix}1-c^2-2d^2&amp;2bc-2ad&amp;2ac+abd\\2bx+2ad&amp;1-2b^2-2d^2&amp;2cd-2ab\\2bd-2ac&amp;2ab+2cd&amp;1-2b^2-2c^2\end{bmatrix}\vec{v}\end{equation}
 \]</span></p>
+<h2 id="todo-你可能还会需要">TODO 你可能还会需要</h2>
+<p>四元数欧拉角之间的变换：<a
+href="http://zhaoxuhui.top/blog/2018/03/13/RelationBetweenQ4&amp;R&amp;Euler.html#5%E6%AC%A7%E6%8B%89%E8%A7%92%E8%BD%AC%E5%9B%9B%E5%85%83%E7%B4%A0">http://zhaoxuhui.top/blog/2018/03/13/RelationBetweenQ4&amp;R&amp;Euler.html#5欧拉角转四元素</a></p>
+<p>让你快速变换的网站工具：</p>
+<p><a
+href="https://quaternions.online/">https://quaternions.online/</a></p>
 <h2 id="万向节死锁">万向节死锁</h2>
 <p>包含了万向节死锁的部分问题，以Unity为例的回答</p>
 <p><a
