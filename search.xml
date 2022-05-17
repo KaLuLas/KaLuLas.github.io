@@ -612,6 +612,7 @@ href="https://krasjet.github.io/quaternion/bonus_gimbal_lock.pdf">bonus_gimbal_l
 <p>个人向的梳理总结：</p>
 <p><strong>万向节死锁（Gimbal
 Lock）</strong>，是指在将一个旋转拆分成<strong>物体自身</strong>三个正交坐标轴，并按照<strong>固定次序</strong>旋转的情况下，存在特殊情况使得其中的两次旋转变换实际上变换的是同一个轴（<strong>外部轴</strong>/<strong>世界坐标轴</strong>）。</p>
+<a href="/p/d376051877fb/GimbalLock.gif" class="gallery-item"><img src="/p/d376051877fb/GimbalLock.gif" class="" title="用Unity做的演示，可以看到y轴旋转90°后z轴正方向和原先的x轴正方向一致"></a>
 <p>注意：物体自身的坐标轴正方向会随着物体的旋转而改变，而外部轴/世界坐标轴正方向是始终不变的，不随着物体旋转而改变。在连续的旋转变换中，下面给出的旋转矩阵针对的“轴”，要以外部轴/世界坐标轴的方式去理解。</p>
 <p>从数学上给出示例进行解释，首先对于x、y、z轴上的旋转，有下述旋转矩阵</p>
 <p><span class="math display">\[
