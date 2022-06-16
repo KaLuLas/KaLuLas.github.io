@@ -764,6 +764,8 @@ https://blog.unity.com/technology/1k-update-calls）。</p>
 <p><code>Behaviour</code>是可以被设置enabled / disabled
 状态的Component，在disable的状态下，一些事件方法将不会执行。而<code>MonoBehaviour</code>是可以使用协程（受Unity
 Engine管理）的Behaviour。</p>
+<p>开发的时候遇到一个问题，为什么unity项目中的C#代码会提示无法去new一个component呢（new
+GameObject却是可行的）。原因是component是需要依赖gameObject存在的，需要gameObject驱动各种生命周期。而C#的new行为并不能在创建component指派component依附的对象，这就导致一些功能不能正常作用。参考了unity论坛此回答：https://answers.unity.com/questions/653904/you-are-trying-to-create-a-monobehaviour-using-the-2.html</p>
 <h3 id="要点">要点</h3>
 <ol type="1">
 <li>Unity object在原生层销毁后表现为null，<code>==
