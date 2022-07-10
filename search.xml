@@ -777,7 +777,9 @@ null</code>判定可能做了一些你料想之外的工作</li>
 </ol>
 <hr />
 <h2 id="原生对象与托管对象的引擎管理">原生对象与托管对象的引擎管理</h2>
-<p>WIP</p>
+<p>原计划是搬运一下参考文章3中，结果粗略看下来参考3更多是说一些序列化 /
+反序列化在Editor /
+AssetBundle中的应用以及实现原理，而没有太多涉及游戏运行时的内容，后续深入学习的时候再补充了</p>
 <h2 id="参考文章">参考文章</h2>
 <ol type="1">
 <li><a href="https://blog.eyas.sh/2020/10/unity-for-engineers-pt5-object-component/" title="" target="">Understanding Unity Engine Objects</a></li>
